@@ -3,8 +3,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'w0ng/vim-hybrid'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'ervandew/supertab'
-" Plug 'Raimondi/delimitMate'
+" Plug 'ervandew/supertab'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }

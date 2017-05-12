@@ -4,3 +4,4 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 
 mkdir -p $HOME/.config/nvim
 ln -s `pwd`/init.vim $HOME/.config/nvim/init.vim
+ln -s `pwd`/zshrc $HOME/.zshrc
