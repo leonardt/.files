@@ -9,3 +9,5 @@ export PATH=$HOME/miniconda3/bin:$PATH
 source $HOME/.files/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
