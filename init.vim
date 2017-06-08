@@ -1,6 +1,10 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'w0ng/vim-hybrid'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " Plug 'ervandew/supertab'
@@ -20,9 +24,12 @@ Plug 'Shougo/echodoc.vim'
 
 call plug#end()
 
-set background=dark
 let g:hybrid_custom_term_colors = 1
-colorscheme hybrid
+" set background=dark
+" colorscheme hybrid
+set background=light
+colorscheme PaperColor
+let g:airline_theme='papercolor'
 
 set smarttab
 set expandtab
