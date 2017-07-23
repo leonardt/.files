@@ -7,26 +7,23 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-" Plug 'ervandew/supertab'
-" Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 Plug 'Raimondi/delimitMate'
 
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-eunuch'
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'Shougo/neco-vim'
-" Plug 'Shougo/neoinclude.vim'
-Plug 'Shougo/neco-syntax'
-Plug 'zchee/deoplete-jedi'
+Plug 'roxma/nvim-completion-manager'
+Plug 'roxma/python-support.nvim'
+
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+Plug 'roxma/clang_complete'
+
 Plug 'mhinz/vim-startify'
 
 Plug 'rizzatti/dash.vim'
-
-" Plug 'Shougo/context_filetype.vim'
-" Plug 'Shougo/neopairs.vim '
-" Plug 'Shougo/echodoc.vim'
 
 call plug#end()
 
@@ -94,13 +91,29 @@ set wildignore+=*.aux,*.log,*.bbl,*.pdf,*.out,*.blg
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>b :Buffers<CR>
 
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
-inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function() abort
-  return deoplete#close_popup() . "\<CR>"
-endfunction
-
 nmap <silent> <leader>d <Plug>DashSearch
+
+" Use <TAB> to select the popup menu:
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+let g:clang_library_path="/Library/Developer/CommandLineTools/usr/lib/libclang.dylib"
+
+au FileType c,cpp  nmap gd <Plug>(clang_complete_goto_declaration)
+
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" Use environment Python
+let g:python_support_python2_venv = 0
+let g:python_support_python3_venv = 0
+
+" Python Completion
+let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'jedi')
+
+" language specific completions on markdown file
+let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'mistune')
+
+" utils, optional for nvim-completion-manager
+let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'psutil')
+let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'setproctitle')
