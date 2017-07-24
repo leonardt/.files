@@ -21,7 +21,7 @@ Plug 'roxma/python-support.nvim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
-Plug 'roxma/clang_complete'
+" Plug 'roxma/clang_complete'
 
 " Plug 'mhinz/vim-startify'
 
@@ -132,7 +132,7 @@ let g:python_support_python3_requirements = add(get(g:,'python_support_python3_r
 " Automatically start language servers.
 let g:LanguageClient_serverCommands = {
             \ 'python': ['pyls'],
-            \ 'cpp': ['clangd']
+            \ 'cpp': ['/usr/local/opt/llvm/bin/clangd']
             \ }
 
 let g:LanguageClient_autoStart = 1
