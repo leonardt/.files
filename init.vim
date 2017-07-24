@@ -28,15 +28,15 @@ Plug 'rizzatti/dash.vim'
 call plug#end()
 
 " let g:hybrid_custom_term_colors = 1
-" set background=dark
-" colorscheme hybrid
-" let g:airline_theme='hybrid'
+set background=dark
+colorscheme hybrid
+let g:airline_theme='hybrid'
 
 set termguicolors
 
-set background=light
-colorscheme PaperColor
-let g:airline_theme='papercolor'
+" set background=light
+" colorscheme PaperColor
+" let g:airline_theme='papercolor'
 
 set smarttab
 set expandtab
