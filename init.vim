@@ -1,5 +1,7 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'icymind/NeoSolarized'
+Plug 'mhartington/oceanic-next'
 Plug 'w0ng/vim-hybrid'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'vim-airline/vim-airline'
@@ -21,18 +23,28 @@ Plug 'honza/vim-snippets'
 
 Plug 'roxma/clang_complete'
 
-Plug 'mhinz/vim-startify'
+" Plug 'mhinz/vim-startify'
 
 Plug 'rizzatti/dash.vim'
+Plug 'rliang/termedit.nvim'
+Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+
 
 call plug#end()
 
 " let g:hybrid_custom_term_colors = 1
-set background=dark
-colorscheme hybrid
-let g:airline_theme='hybrid'
+" set background=dark
+" colorscheme hybrid
+" let g:airline_theme='hybrid'
+
+colorscheme OceanicNext
+let g:airline_theme='oceanicnext'
 
 set termguicolors
+
+let g:neosolarized_contrast = "high"
+" set background=dark
+" colorscheme NeoSolarized
 
 " set background=light
 " colorscheme PaperColor
@@ -71,7 +83,6 @@ endif
 
 set autoindent
 set smartindent
-set hidden
 
 set incsearch
 set ignorecase
@@ -117,3 +128,17 @@ let g:python_support_python3_requirements = add(get(g:,'python_support_python3_r
 " utils, optional for nvim-completion-manager
 let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'psutil')
 let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'setproctitle')
+
+" Automatically start language servers.
+let g:LanguageClient_serverCommands = {
+            \ 'python': ['pyls'],
+            \ 'cpp': ['clangd']
+            \ }
+
+let g:LanguageClient_autoStart = 1
+
+let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'python-language-server')
+
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <leader> r :call LanguageClient_textDocument_rename()<CR>
