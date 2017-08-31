@@ -14,14 +14,15 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 # mkdir -p $WORKON_HOME
 # source virtualenvwrapper.sh
 
-# Note: according to docs, should be at the end of zshrc
-source $HOME/.files/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
+
+# Note: according to docs, should be at the end of zshrc
+source $HOME/.files/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# added by travis gem
+[ -f /Users/lenny/.travis/travis.sh ] && source /Users/lenny/.travis/travis.sh

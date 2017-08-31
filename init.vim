@@ -1,11 +1,15 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'icymind/NeoSolarized'
+Plug 'morhetz/gruvbox'
 Plug 'mhartington/oceanic-next'
 Plug 'w0ng/vim-hybrid'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'junegunn/seoul256.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -21,13 +25,14 @@ Plug 'roxma/python-support.nvim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
-" Plug 'roxma/clang_complete'
+Plug 'roxma/clang_complete'
 
 " Plug 'mhinz/vim-startify'
 
 Plug 'rizzatti/dash.vim'
-Plug 'rliang/termedit.nvim'
-Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+Plug 'mhinz/neovim-remote'
+" Plug 'rliang/termedit.nvim'
+" Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 
 
 call plug#end()
@@ -37,18 +42,26 @@ call plug#end()
 " colorscheme hybrid
 " let g:airline_theme='hybrid'
 
-colorscheme OceanicNext
-let g:airline_theme='oceanicnext'
+if has('nvim')
+  let $VISUAL = 'nvr -cc split --remote-wait'
+endif
 
 set termguicolors
-
-let g:neosolarized_contrast = "high"
-" set background=dark
-" colorscheme NeoSolarized
 
 " set background=light
 " colorscheme PaperColor
 " let g:airline_theme='papercolor'
+
+set background=dark
+colorscheme OceanicNext
+let g:airline_theme='oceanicnext'
+
+" let g:gruvbox_contrast_dark='hard' " soft, medium, hard
+" set background=dark
+" colorscheme gruvbox
+" let g:airline_theme='gruvbox'
+
+set number
 
 set smarttab
 set expandtab
@@ -129,16 +142,23 @@ let g:python_support_python3_requirements = add(get(g:,'python_support_python3_r
 let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'psutil')
 let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'setproctitle')
 
+" [nvim-completion-manager] When the <Enter> key is pressed while the popup menu is visible, it only hides the menu. Use this mapping to hide the menu and also start a new line.
+inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+
+
 " Automatically start language servers.
-let g:LanguageClient_serverCommands = {
-            \ 'python': ['pyls'],
-            \ 'cpp': ['/usr/local/opt/llvm/bin/clangd']
-            \ }
+" let g:LanguageClient_serverCommands = {
+"             \ 'python': ['pyls'],
+"             \ 'cpp': ['/usr/local/opt/llvm/bin/clangd']
+"             \ }
 
-let g:LanguageClient_autoStart = 1
+" let g:LanguageClient_autoStart = 1
 
-let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'python-language-server')
+" let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'python-language-server')
 
-nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-nnoremap <leader> r :call LanguageClient_textDocument_rename()<CR>
+" nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+" nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+" nnoremap <leader> r :call LanguageClient_textDocument_rename()<CR>
+
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
