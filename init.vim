@@ -31,22 +31,23 @@ Plug 'roxma/clang_complete'
 
 Plug 'rizzatti/dash.vim'
 Plug 'mhinz/neovim-remote'
+Plug 'easymotion/vim-easymotion'
 " Plug 'rliang/termedit.nvim'
 " Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 
 
 call plug#end()
 
-" let g:hybrid_custom_term_colors = 1
-" set background=dark
-" colorscheme hybrid
-" let g:airline_theme='hybrid'
-
 if has('nvim')
   let $VISUAL = 'nvr -cc split --remote-wait'
 endif
 
 set termguicolors
+
+" let g:hybrid_custom_term_colors = 1
+" set background=dark
+" colorscheme hybrid
+" let g:airline_theme='hybrid'
 
 " set background=light
 " colorscheme PaperColor
@@ -109,8 +110,22 @@ autocmd FileType make setlocal noexpandtab
 
 let mapleader="\<Space>"
 tnoremap <Esc> <C-\><C-n>
+
+set wildmenu
+set wildmode=list:longest
 " Latex ignores
-set wildignore+=*.aux,*.log,*.bbl,*.pdf,*.out,*.blg
+set wildignore+=*.aux,*.log,*.bbl,*.pdf,*.out,*.blg,
+set wildignore+=.hg,.git,.svn                    " Version control
+set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
+set wildignore+=*.spl                            " compiled spelling word lists
+set wildignore+=*.sw?                            " Vim swap files
+set wildignore+=*.DS_Store                       " OSX bullshit
+
+set wildignore+=*.pyc                            " Python byte code
+
+set wildignore+=*.orig                           " Merge resolution files
 
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>b :Buffers<CR>
@@ -162,3 +177,31 @@ inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
 
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
+
+fun! StripTrailingWhitespaces()
+    if &ft =~ 'markdown'
+      return
+    endif
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+
+" autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call StripTrailingWhitespaces()
+autocmd bufwritepre * :call StripTrailingWhitespaces()
+
+" Make sure Vim returns to the same line when you reopen a file.
+" Thanks, Amit
+augroup line_return
+    au!
+    au BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \     execute 'normal! g`"zvzz' |
+        \ endif
+augroup END
+
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)

@@ -21,6 +21,14 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
+alias gp=git pull
+alias gc=git commit
+alias gP=git push
+
+clean_pycache () {
+    find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
+}
+
 # Note: according to docs, should be at the end of zshrc
 source $HOME/.files/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
