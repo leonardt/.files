@@ -5,6 +5,7 @@ Plug 'mhartington/oceanic-next'
 Plug 'w0ng/vim-hybrid'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'junegunn/seoul256.vim'
+Plug 'whatyouhide/vim-gotham'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -44,6 +45,9 @@ endif
 
 set termguicolors
 
+set background=dark
+" colorscheme gotham
+
 " let g:hybrid_custom_term_colors = 1
 " set background=dark
 " colorscheme hybrid
@@ -53,14 +57,14 @@ set termguicolors
 " colorscheme PaperColor
 " let g:airline_theme='papercolor'
 
-set background=dark
-colorscheme OceanicNext
-let g:airline_theme='oceanicnext'
-
-" let g:gruvbox_contrast_dark='hard' " soft, medium, hard
 " set background=dark
-" colorscheme gruvbox
-" let g:airline_theme='gruvbox'
+" colorscheme OceanicNext
+" let g:airline_theme='oceanicnext'
+
+let g:gruvbox_contrast_dark='hard' " soft, medium, hard
+set background=dark
+colorscheme gruvbox
+let g:airline_theme='gruvbox'
 
 set number
 
@@ -189,7 +193,7 @@ fun! StripTrailingWhitespaces()
 endfun
 
 " autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call StripTrailingWhitespaces()
-autocmd bufwritepre * :call StripTrailingWhitespaces()
+" autocmd bufwritepre * :call StripTrailingWhitespaces()
 
 " Make sure Vim returns to the same line when you reopen a file.
 " Thanks, Amit
@@ -205,3 +209,6 @@ map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 map <Leader>h <Plug>(easymotion-linebackward)
+
+" Append --no-height for neovim terminal
+let $FZF_DEFAULT_OPTS .= ' --no-height'
