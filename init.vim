@@ -21,7 +21,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-eunuch'
 
 Plug 'roxma/nvim-completion-manager'
-Plug 'roxma/python-support.nvim'
+" Plug 'roxma/python-support.nvim'
 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
