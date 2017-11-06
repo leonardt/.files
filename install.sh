@@ -25,3 +25,9 @@ ln -s `pwd`/zshrc $HOME/.zshrc
 # ln -s `pwd`/.files/skhdrc $HOME/.skhdrc
 # brew install koekeishiya/formulae/skhd
 # brew services start skhd
+
+conda install virtualenvwrapper
+export WORKON_HOME=~/.virtual_envs
+mkdir -p $WORKON_HOME
+
+ln -s `pwd`/latexmkrc $HOME/.latexmkrc

@@ -29,8 +29,14 @@ clean_pycache () {
     find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
 }
 
+# added by travis gem
+[ -f /Users/lenny/.travis/travis.sh ] && source /Users/lenny/.travis/travis.sh
+
+export WORKON_HOME=~/.virtual_envs
+source $HOME/miniconda3/bin/virtualenvwrapper.sh
+
 # Note: according to docs, should be at the end of zshrc
 source $HOME/.files/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# added by travis gem
-[ -f /Users/lenny/.travis/travis.sh ] && source /Users/lenny/.travis/travis.sh
+# export DYLD_LIBRARY_PATH=$HOME/miniconda3/lib:$DYLD_LIBRARY_PATH
+export PYTHON_CONFIG=python3-config

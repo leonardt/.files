@@ -1,5 +1,7 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'cocopon/iceberg.vim'
+Plug 'nanotech/jellybeans.vim'
 Plug 'morhetz/gruvbox'
 Plug 'mhartington/oceanic-next'
 Plug 'w0ng/vim-hybrid'
@@ -11,6 +13,7 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+Plug 'junegunn/vim-easy-align'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -19,9 +22,12 @@ Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 
 Plug 'roxma/nvim-completion-manager'
 " Plug 'roxma/python-support.nvim'
+Plug 'vim-python/python-syntax'
 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -61,10 +67,21 @@ set background=dark
 " colorscheme OceanicNext
 " let g:airline_theme='oceanicnext'
 
-let g:gruvbox_contrast_dark='hard' " soft, medium, hard
+" let g:gruvbox_contrast_dark='hard' " soft, medium, hard
+" set background=dark
+" colorscheme gruvbox
+" let g:airline_theme='gruvbox'
+
 set background=dark
-colorscheme gruvbox
-let g:airline_theme='gruvbox'
+colorscheme jellybeans
+let g:airline_theme="jellybeans"
+
+" set background=dark
+" colorscheme iceberg
+" let g:airline_theme="iceberg"
+
+
+let g:python_highlight_all = 1
 
 set number
 
@@ -212,3 +229,9 @@ map <Leader>h <Plug>(easymotion-linebackward)
 
 " Append --no-height for neovim terminal
 let $FZF_DEFAULT_OPTS .= ' --no-height'
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
