@@ -81,6 +81,7 @@ let g:airline_theme="jellybeans"
 " let g:airline_theme="iceberg"
 
 
+let g:python_version_2 = 0
 let g:python_highlight_all = 1
 
 set number
@@ -235,3 +236,5 @@ xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
