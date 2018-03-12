@@ -20,9 +20,9 @@ brew install zsh
 ln -s `pwd`/zshrc $HOME/.zshrc
 
 # brew install glfw  # for kitty terminal
-# ln -s `pwd`/.files/kitty.conf $HOME/Library/Preferences/kitty/kitty.conf
+# ln -s `pwd`/kitty.conf $HOME/Library/Preferences/kitty/kitty.conf
 # 
-# ln -s `pwd`/.files/skhdrc $HOME/.skhdrc
+# ln -s `pwd`/skhdrc $HOME/.skhdrc
 # brew install koekeishiya/formulae/skhd
 # brew services start skhd
 

@@ -5,6 +5,8 @@ prompt pure
 
 autoload -Uz compinit; compinit
 
+export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/texlive/2017/bin/x86_64-darwin/:$PATH
 export PATH=$HOME/miniconda3/bin:$PATH
 
 export FZF_DEFAULT_COMMAND='ag -g ""'
@@ -40,3 +42,9 @@ source $HOME/.files/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # export DYLD_LIBRARY_PATH=$HOME/miniconda3/lib:$DYLD_LIBRARY_PATH
 export PYTHON_CONFIG=python3-config
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+
+pygmentize_clipboard() {
+    pbpaste | pygmentize -O "style=paraiso-dark,fontface=Source Code Pro,fontsize=76" -f rtf -l c | pbcopy
+}

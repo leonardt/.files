@@ -42,6 +42,9 @@ Plug 'easymotion/vim-easymotion'
 " Plug 'rliang/termedit.nvim'
 " Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 
+Plug 'vimwiki/vimwiki'
+Plug 'lervag/vimtex'
+
 
 call plug#end()
 
@@ -57,9 +60,10 @@ set background=dark
 " let g:hybrid_custom_term_colors = 1
 " set background=dark
 " colorscheme hybrid
-" let g:airline_theme='hybrid'
+" let g:airline_theme='hybridline'
 
 " set background=light
+" set background=dark
 " colorscheme PaperColor
 " let g:airline_theme='papercolor'
 
