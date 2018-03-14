@@ -26,7 +26,7 @@ ln -s `pwd`/zshrc $HOME/.zshrc
 # brew install koekeishiya/formulae/skhd
 # brew services start skhd
 
-conda install virtualenvwrapper
+pip install virtualenvwrapper
 export WORKON_HOME=~/.virtual_envs
 mkdir -p $WORKON_HOME
 
