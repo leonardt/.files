@@ -46,5 +46,5 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 pygmentize_clipboard() {
-    pbpaste | pygmentize -O "style=paraiso-dark,fontface=Source Code Pro,fontsize=76" -f rtf -l c | pbcopy
+    pbpaste | pygmentize -O "style=paraiso-dark,fontface=Source Code Pro,fontsize=76" -f rtf -l python | pbcopy
 }

@@ -16,6 +16,11 @@ pip install neovim
 mkdir -p $HOME/.config/nvim
 ln -s `pwd`/init.vim $HOME/.config/nvim/init.vim
 
+# Setup vim too (sometimes I use macvim?)
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+ln -s `pwd`/.vimrc $HOME/.vimrc
+
 brew install zsh
 ln -s `pwd`/zshrc $HOME/.zshrc
 
