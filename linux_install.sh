@@ -18,3 +18,4 @@ pip install virtualenvwrapper
 export WORKON_HOME=~/.virtual_envs
 mkdir -p $WORKON_HOME
 ln -s `pwd`/.files/gitconfig $HOME/.gitconfig
+ln -s `pwd`/.files/tmux.conf $HOME/.tmux.conf

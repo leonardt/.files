@@ -37,3 +37,4 @@ mkdir -p $WORKON_HOME
 
 ln -s `pwd`/latexmkrc $HOME/.latexmkrc
 ln -s `pwd`/.files/gitconfig $HOME/.gitconfig
+ln -s `pwd`/.files/tmux.conf $HOME/.tmux.conf
