@@ -36,3 +36,4 @@ export WORKON_HOME=~/.virtual_envs
 mkdir -p $WORKON_HOME
 
 ln -s `pwd`/latexmkrc $HOME/.latexmkrc
+ln -s `pwd`/.files/gitconfig $HOME/.gitconfig

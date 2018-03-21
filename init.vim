@@ -10,6 +10,10 @@ Plug 'junegunn/seoul256.vim'
 Plug 'whatyouhide/vim-gotham'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'rakr/vim-two-firewatch'
+Plug 'ayu-theme/ayu-vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'trevordmiller/nova-vim'
 
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
@@ -54,7 +58,7 @@ endif
 
 set termguicolors
 
-set background=dark
+" set background=dark
 " colorscheme gotham
 
 " let g:hybrid_custom_term_colors = 1
@@ -76,9 +80,23 @@ set background=dark
 " colorscheme gruvbox
 " let g:airline_theme='gruvbox'
 
-set background=dark
-colorscheme jellybeans
-let g:airline_theme="jellybeans"
+" set background=dark
+" colorscheme jellybeans
+" let g:airline_theme="jellybeans"
+
+" set background=light " or light if you prefer the light version
+" let g:two_firewatch_italics=1
+" colo two-firewatch
+"
+" let g:airline_theme='twofirewatch' " if you have Airline installed and want the associated theme
+" let ayucolor="light"  " for light version of theme
+" let ayucolor="mirage" " for mirage version of theme
+" let ayucolor="dark"   " for dark version of theme
+" colorscheme ayu
+" let g:airline_theme="ayu"
+
+colorscheme nova
+let g:airline_theme="nova"
 
 " set background=dark
 " colorscheme iceberg

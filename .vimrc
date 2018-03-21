@@ -3,14 +3,39 @@ call plug#begin('~/.vim/plugged')
 Plug 'nanotech/jellybeans.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'rakr/vim-two-firewatch'
+Plug 'ayu-theme/ayu-vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'trevordmiller/nova-vim'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 call plug#end()
 
-set background=dark
-colorscheme jellybeans
-let g:airline_theme="jellybeans"
+set termguicolors
+
+" set background=dark
+" colorscheme jellybeans
+" let g:airline_theme="jellybeans"
+
+" set background=dark " or light if you prefer the light version
+" set background=light " or light if you prefer the light version
+" let g:two_firewatch_italics=1
+" colo two-firewatch
+" 
+" let g:airline_theme='twofirewatch' " if you have Airline installed and want the associated theme
+" let ayucolor="light"  " for light version of theme
+" let ayucolor="mirage" " for mirage version of theme
+" let ayucolor="dark"   " for dark version of theme
+" colorscheme ayu
+" let g:airline_theme="ayu"
+
+colorscheme nova
+let g:airline_theme="nova"
+
+if has('gui_running')
+  set guifont=Source\ Code\ Pro:h12
+endif
 
 set number
 
