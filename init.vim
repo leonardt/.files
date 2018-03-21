@@ -95,6 +95,7 @@ set termguicolors
 " colorscheme ayu
 " let g:airline_theme="ayu"
 
+set background=dark
 colorscheme nova
 let g:airline_theme="nova"
 
