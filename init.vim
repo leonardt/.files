@@ -91,13 +91,12 @@ set termguicolors
 " let g:airline_theme='twofirewatch' " if you have Airline installed and want the associated theme
 " let ayucolor="light"  " for light version of theme
 " let ayucolor="mirage" " for mirage version of theme
-" let ayucolor="dark"   " for dark version of theme
-" colorscheme ayu
-" let g:airline_theme="ayu"
+let ayucolor="dark"   " for dark version of theme
+colorscheme ayu
+let g:airline_theme="ayu"
 
-set background=dark
-colorscheme nova
-let g:airline_theme="nova"
+" colorscheme nova
+" let g:airline_theme="nova"
 
 " set background=dark
 " colorscheme iceberg
