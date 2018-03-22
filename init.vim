@@ -84,19 +84,19 @@ set termguicolors
 " colorscheme jellybeans
 " let g:airline_theme="jellybeans"
 
-" set background=light " or light if you prefer the light version
+" set background=dark " or light if you prefer the light version
 " let g:two_firewatch_italics=1
 " colo two-firewatch
 "
 " let g:airline_theme='twofirewatch' " if you have Airline installed and want the associated theme
 " let ayucolor="light"  " for light version of theme
 " let ayucolor="mirage" " for mirage version of theme
-let ayucolor="dark"   " for dark version of theme
-colorscheme ayu
-let g:airline_theme="ayu"
+" let ayucolor="dark"   " for dark version of theme
+" colorscheme ayu
+" let g:airline_theme="ayu"
 
-" colorscheme nova
-" let g:airline_theme="nova"
+colorscheme nova
+let g:airline_theme="nova"
 
 " set background=dark
 " colorscheme iceberg
