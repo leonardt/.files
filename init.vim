@@ -12,6 +12,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'rakr/vim-two-firewatch'
 Plug 'ayu-theme/ayu-vim'
+
 Plug 'sheerun/vim-polyglot'
 Plug 'trevordmiller/nova-vim'
 
@@ -33,6 +34,8 @@ Plug 'roxma/nvim-completion-manager'
 " Plug 'roxma/python-support.nvim'
 Plug 'vim-python/python-syntax'
 
+" Plug 'w0rp/ale'
+
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
@@ -47,8 +50,11 @@ Plug 'easymotion/vim-easymotion'
 " Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 
 Plug 'vimwiki/vimwiki'
-Plug 'lervag/vimtex'
 
+Plug 'lervag/vimtex'
+" Plug 'brennier/quicktex'
+
+Plug 'rhysd/committia.vim'
 
 call plug#end()
 
