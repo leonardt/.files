@@ -38,3 +38,5 @@ mkdir -p $WORKON_HOME
 ln -s `pwd`/latexmkrc $HOME/.latexmkrc
 ln -s `pwd`/gitconfig $HOME/.gitconfig
 ln -s `pwd`/tmux.conf $HOME/.tmux.conf
+mkdir -p $HOME/.config/alacritty
+ln -s `pwd`/alacritty.yml $HOME/.config/alacritty/alacritty.yml
