@@ -35,7 +35,7 @@ clean_pycache () {
 [ -f /Users/lenny/.travis/travis.sh ] && source /Users/lenny/.travis/travis.sh
 
 export WORKON_HOME=~/.virtual_envs
-source $HOME/miniconda3/bin/virtualenvwrapper.sh
+# source $HOME/miniconda3/bin/virtualenvwrapper.sh
 
 # Note: according to docs, should be at the end of zshrc
 source $HOME/.files/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -47,4 +47,17 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 pygmentize_clipboard() {
     pbpaste | pygmentize -O "style=paraiso-dark,fontface=Source Code Pro,fontsize=76" -f rtf -l python | pbcopy
+}
+
+# From: https://github.com/junegunn/fzf/wiki/examples#tmux
+# tm - create new tmux session, or switch to existing one. Works from within tmux too. (@bag-man)
+# `tm` will allow you to select your tmux session via fzf.
+# `tm irc` will attach to the irc session (if it exists), else it will create it.
+
+tm() {
+  [[ -n "$TMUX" ]] && change="switch-client" || change="attach-session"
+  if [ $1 ]; then
+    tmux $change -t "$1" 2>/dev/null || (tmux new-session -d -s $1 && tmux $change -t "$1"); return
+  fi
+  session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | fzf --exit-0) &&  tmux $change -t "$session" || echo "No sessions found."
 }
