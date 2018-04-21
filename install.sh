@@ -40,3 +40,6 @@ ln -s `pwd`/gitconfig $HOME/.gitconfig
 ln -s `pwd`/tmux.conf $HOME/.tmux.conf
 mkdir -p $HOME/.config/alacritty
 ln -s `pwd`/alacritty.yml $HOME/.config/alacritty/alacritty.yml
+
+ln -s `pwd`/chunkwmrc $HOME/.chunkwmrc
+ln -s `pwd`/skhdrc $HOME/.skhdrc
