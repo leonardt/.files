@@ -40,7 +40,7 @@ Plug 'vim-python/python-syntax'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
-Plug 'roxma/clang_complete'
+Plug 'roxma/ncm-clang'
 
 " Plug 'mhinz/vim-startify'
 
@@ -187,7 +187,7 @@ nmap <silent> <leader>d <Plug>DashSearch
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-let g:clang_library_path="/Library/Developer/CommandLineTools/usr/lib/libclang.dylib"
+" let g:clang_library_path="/Library/Developer/CommandLineTools/usr/lib/libclang.dylib"
 
 au FileType c,cpp  nmap gd <Plug>(clang_complete_goto_declaration)
 
