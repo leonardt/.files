@@ -187,7 +187,14 @@ nmap <silent> <leader>d <Plug>DashSearch
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-" let g:clang_library_path="/Library/Developer/CommandLineTools/usr/lib/libclang.dylib"
+if has("unix")
+  let s:uname = system("uname -s")
+  if s:uname == "Darwin"
+    let g:clang_library_path="/Library/Developer/CommandLineTools/usr/lib/libclang.dylib"
+  else
+    let g:clang_library_path="/usr/lib/llvm-3.4/lib"
+  endif
+endif
 
 au FileType c,cpp  nmap gd <Plug>(clang_complete_goto_declaration)
 
