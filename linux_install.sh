@@ -3,9 +3,9 @@
 git submodule init
 git submodule update
 
-sudo apt-get install zsh
-
-sudo apt-get install software-properties-common
+sudo apt-get install zsh \
+                     software-properties-common \
+                     silversearcher-ag
 
 # stable only works for xenial, use unstable since many boxes still use trusty
 sudo add-apt-repository ppa:neovim-ppa/unstable
