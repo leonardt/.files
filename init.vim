@@ -31,16 +31,12 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 
-Plug 'roxma/nvim-completion-manager'
-" Plug 'roxma/python-support.nvim'
 Plug 'vim-python/python-syntax'
 
 " Plug 'w0rp/ale'
 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-
-Plug 'roxma/ncm-clang'
 
 " Plug 'mhinz/vim-startify'
 
@@ -200,24 +196,6 @@ au FileType c,cpp  nmap gd <Plug>(clang_complete_goto_declaration)
 
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" Use environment Python
-let g:python_support_python2_venv = 0
-let g:python_support_python3_venv = 0
-
-" Python Completion
-let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'jedi')
-
-" language specific completions on markdown file
-let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'mistune')
-
-" utils, optional for nvim-completion-manager
-let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'psutil')
-let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'setproctitle')
-
-" [nvim-completion-manager] When the <Enter> key is pressed while the popup menu is visible, it only hides the menu. Use this mapping to hide the menu and also start a new line.
-inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
-
 
 " Automatically start language servers.
 " let g:LanguageClient_serverCommands = {
