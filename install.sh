@@ -13,6 +13,7 @@ curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 
 brew install neovim
 pip install neovim
+pip install python-language-server
 mkdir -p $HOME/.config/nvim
 ln -s `pwd`/init.vim $HOME/.config/nvim/init.vim
 
