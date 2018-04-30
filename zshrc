@@ -63,3 +63,12 @@ tm() {
 }
 
 alias vim=nvim
+
+case `uname` in
+  Darwin)
+    alias ls='ls -G'
+  ;;
+  # Linux)
+  #   # commands for Linux go here
+  # ;;
+esac
