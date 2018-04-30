@@ -29,6 +29,9 @@ ln -s `pwd`/.vimrc $HOME/.vimrc
 brew install zsh
 ln -s `pwd`/zshrc $HOME/.zshrc
 
+brew install reattach-to-user-namespace
+
+
 # brew install glfw  # for kitty terminal
 # ln -s `pwd`/kitty.conf $HOME/Library/Preferences/kitty/kitty.conf
 # 

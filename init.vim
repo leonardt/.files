@@ -32,6 +32,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rsi'
 
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
