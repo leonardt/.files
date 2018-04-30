@@ -7,3 +7,6 @@
 [submodule "tpm"]
 	path = tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule "nord-dircolors"]
+	path = nord-dircolors
+	url = https://github.com/arcticicestudio/nord-dircolors

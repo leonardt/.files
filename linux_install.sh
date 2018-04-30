@@ -5,6 +5,7 @@ git submodule update
 
 mkdir -p $HOME/.tmux/plugins
 ln -s `pwd`/tpm $HOME/.tmux/plugins/tpm
+ln -s `pwd`/arcticicestudio/nord-dircolors/src/dir_colors $HOME/.dir_colors
 
 sudo apt-get install zsh \
                      software-properties-common \
