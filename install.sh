@@ -2,6 +2,9 @@
 git submodule init
 git submodule update
 
+mkdir -p $HOME/.tmux/plugins
+ln -s `pwd`/tpm $HOME/.tmux/plugins/tpm
+
 brew install wget
 wget https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
 bash Miniconda3-latest-MacOSX-x86_64.sh

@@ -16,6 +16,8 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'trevordmiller/nova-vim'
 
+Plug 'arcticicestudio/nord-vim'
+
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/vim-easy-align'
@@ -103,8 +105,12 @@ set termguicolors
 " colorscheme ayu
 " let g:airline_theme="ayu"
 
-colorscheme nova
-let g:airline_theme="nova"
+" colorscheme nova
+" let g:airline_theme="nova"
+
+colorscheme nord
+let g:airline_theme="nord"
+
 
 " set background=dark
 " colorscheme iceberg

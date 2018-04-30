@@ -3,6 +3,9 @@
 git submodule init
 git submodule update
 
+mkdir -p $HOME/.tmux/plugins
+ln -s `pwd`/tpm $HOME/.tmux/plugins/tpm
+
 sudo apt-get install zsh \
                      software-properties-common \
                      silversearcher-ag
