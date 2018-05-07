@@ -123,3 +123,4 @@ chunkc tiling::rule --owner Chrome --name \"Google Hangouts\" --state float
 chunkc tiling::rule --owner Keynote --state float
 chunkc tiling::rule --owner Fantastical --state float
 chunkc tiling::rule --owner OmniGraffle --state float
+chunkc tiling::rule --owner Evernote --state float

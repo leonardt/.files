@@ -72,3 +72,13 @@ case `uname` in
   #   # commands for Linux go here
   # ;;
 esac
+
+# From man zshoptions
+# INC_APPEND_HISTORY
+#    This  options  works like APPEND_HISTORY except that new history
+#    lines are added to the $HISTFILE incrementally (as soon as  they
+#    are  entered),  rather  than waiting until the shell exits.  The
+#    file will still be periodically re-written to trim it  when  the
+#    number  of  lines grows 20% beyond the value specified by $SAVE-
+#    HIST (see also the HIST_SAVE_BY_COPY option).
+setopt INC_APPEND_HISTORY

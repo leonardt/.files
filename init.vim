@@ -1,26 +1,27 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'cocopon/iceberg.vim'
-Plug 'nanotech/jellybeans.vim'
-Plug 'morhetz/gruvbox'
-Plug 'mhartington/oceanic-next'
-Plug 'w0ng/vim-hybrid'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'junegunn/seoul256.vim'
-Plug 'whatyouhide/vim-gotham'
+" Plug 'cocopon/iceberg.vim'
+" Plug 'nanotech/jellybeans.vim'
+" Plug 'morhetz/gruvbox'
+" Plug 'mhartington/oceanic-next'
+" Plug 'w0ng/vim-hybrid'
+" Plug 'NLKNguyen/papercolor-theme'
+" Plug 'junegunn/seoul256.vim'
+" Plug 'whatyouhide/vim-gotham'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'rakr/vim-two-firewatch'
-Plug 'ayu-theme/ayu-vim'
-
-Plug 'sheerun/vim-polyglot'
-Plug 'trevordmiller/nova-vim'
+" Plug 'rakr/vim-two-firewatch'
+" Plug 'ayu-theme/ayu-vim'
+" 
+" Plug 'sheerun/vim-polyglot'
+" Plug 'trevordmiller/nova-vim'
 
 Plug 'arcticicestudio/nord-vim'
 
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/vim-easy-align'
+
 Plug 'ruanyl/vim-gh-line'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -34,10 +35,12 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rsi'
 
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+
+" Plug 'prabirshrestha/async.vim'
+" Plug 'prabirshrestha/vim-lsp'
+" Plug 'prabirshrestha/asyncomplete.vim'
+" Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 Plug 'vim-python/python-syntax'
 
@@ -48,18 +51,18 @@ Plug 'honza/vim-snippets'
 
 " Plug 'mhinz/vim-startify'
 
-Plug 'rizzatti/dash.vim'
+" Plug 'rizzatti/dash.vim'
 Plug 'mhinz/neovim-remote'
-Plug 'easymotion/vim-easymotion'
+" Plug 'easymotion/vim-easymotion'
 " Plug 'rliang/termedit.nvim'
 " Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 
-Plug 'vimwiki/vimwiki'
+" Plug 'vimwiki/vimwiki'
 
 Plug 'lervag/vimtex'
 " Plug 'brennier/quicktex'
 
-Plug 'rhysd/committia.vim'
+" Plug 'rhysd/committia.vim'
 
 call plug#end()
 
@@ -110,6 +113,7 @@ set termguicolors
 " let g:airline_theme="nova"
 
 set background=dark
+let g:nord_comment_brightness = 12
 colorscheme nord
 let g:airline_theme="nord"
 
@@ -266,16 +270,16 @@ nmap ga <Plug>(EasyAlign)
 
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
-if executable('pyls')
-    " pip install python-language-server
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'whitelist': ['python'],
-        \ })
-endif
+" if executable('pyls')
+"     " pip install python-language-server
+"     au User lsp_setup call lsp#register_server({
+"         \ 'name': 'pyls',
+"         \ 'cmd': {server_info->['pyls']},
+"         \ 'whitelist': ['python'],
+"         \ })
+" endif
 
 " asyncomplete.vim
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
