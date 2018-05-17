@@ -17,6 +17,8 @@ Plug 'vim-airline/vim-airline-themes'
 " Plug 'trevordmiller/nova-vim'
 
 Plug 'arcticicestudio/nord-vim'
+Plug 'dikiaap/minimalist'
+Plug 'reedes/vim-colors-pencil'
 
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
@@ -26,7 +28,8 @@ Plug 'ruanyl/vim-gh-line'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'Raimondi/delimitMate'
+" Plug 'Raimondi/delimitMate'
+Plug 'jiangmiao/auto-pairs'
 
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -43,6 +46,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 " Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 Plug 'vim-python/python-syntax'
+Plug 'sheerun/vim-polyglot'
 
 " Plug 'w0rp/ale'
 
@@ -63,6 +67,8 @@ Plug 'lervag/vimtex'
 " Plug 'brennier/quicktex'
 
 " Plug 'rhysd/committia.vim'
+
+Plug 'tmux-plugins/vim-tmux'
 
 call plug#end()
 
@@ -116,6 +122,15 @@ set background=dark
 let g:nord_comment_brightness = 12
 colorscheme nord
 let g:airline_theme="nord"
+
+" colorscheme minimalist
+" let g:airline_theme='minimalist'
+" let g:airline_powerline_fonts = 1
+" let g:airline#extensions#tabline#enabled = 1
+
+" let g:pencil_higher_contrast_ui = 1
+" colorscheme pencil
+" let g:airline_theme="pencil"
 
 
 " set background=dark
@@ -211,6 +226,7 @@ endif
 
 au FileType c,cpp  nmap gd <Plug>(clang_complete_goto_declaration)
 
+let g:UltiSnipsExpandTrigger='<c-k>'
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
