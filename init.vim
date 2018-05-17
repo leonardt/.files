@@ -211,38 +211,9 @@ nnoremap <leader>b :Buffers<CR>
 
 nmap <silent> <leader>d <Plug>DashSearch
 
-" Use <TAB> to select the popup menu:
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-if has("unix")
-  let s:uname = system("uname -s")
-  if s:uname == "Darwin"
-    let g:clang_library_path="/Library/Developer/CommandLineTools/usr/lib/libclang.dylib"
-  else
-    let g:clang_library_path="/usr/lib/llvm-3.4/lib"
-  endif
-endif
-
-au FileType c,cpp  nmap gd <Plug>(clang_complete_goto_declaration)
-
 let g:UltiSnipsExpandTrigger='<c-k>'
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" Automatically start language servers.
-" let g:LanguageClient_serverCommands = {
-"             \ 'python': ['pyls'],
-"             \ 'cpp': ['/usr/local/opt/llvm/bin/clangd']
-"             \ }
-
-" let g:LanguageClient_autoStart = 1
-
-" let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'python-language-server')
-
-" nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-" nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-" nnoremap <leader> r :call LanguageClient_textDocument_rename()<CR>
 
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
@@ -257,8 +228,8 @@ fun! StripTrailingWhitespaces()
     call cursor(l, c)
 endfun
 
-" autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call StripTrailingWhitespaces()
-" autocmd bufwritepre * :call StripTrailingWhitespaces()
+autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call StripTrailingWhitespaces()
+autocmd bufwritepre * :call StripTrailingWhitespaces()
 
 " Make sure Vim returns to the same line when you reopen a file.
 " Thanks, Amit
@@ -285,17 +256,3 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-
-" if executable('pyls')
-"     " pip install python-language-server
-"     au User lsp_setup call lsp#register_server({
-"         \ 'name': 'pyls',
-"         \ 'cmd': {server_info->['pyls']},
-"         \ 'whitelist': ['python'],
-"         \ })
-" endif
-
-" asyncomplete.vim
-" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
