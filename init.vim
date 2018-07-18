@@ -1,5 +1,12 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
 " Plug 'cocopon/iceberg.vim'
 " Plug 'nanotech/jellybeans.vim'
 " Plug 'morhetz/gruvbox'
@@ -12,11 +19,12 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Plug 'rakr/vim-two-firewatch'
 " Plug 'ayu-theme/ayu-vim'
-" 
+"
 " Plug 'sheerun/vim-polyglot'
 " Plug 'trevordmiller/nova-vim'
 
 Plug 'arcticicestudio/nord-vim'
+Plug 'ayu-theme/ayu-vim'
 Plug 'dikiaap/minimalist'
 Plug 'reedes/vim-colors-pencil'
 
@@ -38,8 +46,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rsi'
 
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
-
 " Plug 'prabirshrestha/async.vim'
 " Plug 'prabirshrestha/vim-lsp'
 " Plug 'prabirshrestha/asyncomplete.vim'
@@ -50,8 +56,8 @@ Plug 'sheerun/vim-polyglot'
 
 " Plug 'w0rp/ale'
 
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+" Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'
 
 " Plug 'mhinz/vim-startify'
 
@@ -111,17 +117,17 @@ set termguicolors
 " let g:airline_theme='twofirewatch' " if you have Airline installed and want the associated theme
 " let ayucolor="light"  " for light version of theme
 " let ayucolor="mirage" " for mirage version of theme
-" let ayucolor="dark"   " for dark version of theme
-" colorscheme ayu
-" let g:airline_theme="ayu"
+let ayucolor="dark"   " for dark version of theme
+colorscheme ayu
+let g:airline_theme="ayu"
 
 " colorscheme nova
 " let g:airline_theme="nova"
 
-set background=dark
-let g:nord_comment_brightness = 12
-colorscheme nord
-let g:airline_theme="nord"
+" set background=dark
+" let g:nord_comment_brightness = 12
+" colorscheme nord
+" let g:airline_theme="nord"
 
 " colorscheme minimalist
 " let g:airline_theme='minimalist'
@@ -256,3 +262,16 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+
+let g:LanguageClient_serverCommands = {
+    \ 'python': ['pyls'],
+    \ }
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+" Or map each action separately
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
