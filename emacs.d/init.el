@@ -194,22 +194,22 @@
 (define-key global-map (kbd "RET") 'newline-and-indent)
 
 (evil-leader/set-key
- "x" 'helm-M-x
- "m" 'helm-mini
- "b" 'helm-buffers-list
- "y" 'helm-show-kill-ring
- "i" 'helm-semantic-or-imenu
- "o" 'helm-occur
- "a" 'helm-projectil-ag
- "y" 'helm-show-kill-ring
- "c" 'compile
- "r" 'recompile
- "e s" 'eshell
- "g s" 'magit-status
- "g p s" 'magit-push
- "g p l" 'magit-pull
- "g c" 'magic-commit
- "f" 'helm-find-files)
+  "x" 'helm-M-x
+  "m" 'helm-mini
+  "b" 'helm-buffers-list
+  "y" 'helm-show-kill-ring
+  "i" 'helm-semantic-or-imenu
+  "o" 'helm-occur
+  "a" 'helm-projectil-ag
+  "y" 'helm-show-kill-ring
+  "c" 'compile
+  "r" 'recompile
+  "e s" 'eshell
+  "g s" 'magit-status
+  "g p s" 'magit-push
+  "g p l" 'magit-pull
+  "g c" 'magit-commit
+  "f" 'helm-find-files)
 
 (define-key evil-normal-state-map (kbd "C-p") 'helm-projectile)
 
@@ -357,16 +357,10 @@
 (diminish 'projectile-mode)
 (diminish 'magit-auto-revert-mode)
 
-;; (require 'ample-theme)
 (setq-default sml/theme 'dark)
 (sml/setup)
 (load-theme 'nord t)
-;;(load-theme 'leuven t)
-;; (load-theme 'gruvbox t)
-;; (enable-theme 'ample)
-;; (load-theme 'leuven t)
-;; (load-theme 'ample t)
-;; (enable-theme 'ample)
+
 
 
 ;; (add-to-list 'default-frame-alist
