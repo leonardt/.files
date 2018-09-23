@@ -128,8 +128,6 @@ set background=dark
 let g:nord_comment_brightness = 12
 colorscheme nord
 let g:airline_theme="nord"
-" let g:alduin_Shout_Become_Ethereal = 1
-" colorscheme alduin
 
 " colorscheme minimalist
 " let g:airline_theme='minimalist'
