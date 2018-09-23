@@ -46,7 +46,7 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 pygmentize_clipboard() {
-    pbpaste | pygmentize -O "style=paraiso-dark,fontface=Source Code Pro,fontsize=76" -f rtf -l python | pbcopy
+    pbpaste | pygmentize -O "style=paraiso-dark,fontface=Source Code Pro,fontsize=76" -f rtf -l verilog | pbcopy
 }
 
 # From: https://github.com/junegunn/fzf/wiki/examples#tmux
@@ -82,3 +82,7 @@ esac
 #    number  of  lines grows 20% beyond the value specified by $SAVE-
 #    HIST (see also the HIST_SAVE_BY_COPY option).
 setopt INC_APPEND_HISTORY
+
+addnw () {
+    git diff -U0 -w --no-color | git apply --cached --ignore-whitespace --unidiff-zero -
+}

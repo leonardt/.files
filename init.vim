@@ -5,28 +5,28 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
-" Plug 'cocopon/iceberg.vim'
-" Plug 'nanotech/jellybeans.vim'
-" Plug 'morhetz/gruvbox'
-" Plug 'mhartington/oceanic-next'
-" Plug 'w0ng/vim-hybrid'
-" Plug 'NLKNguyen/papercolor-theme'
-" Plug 'junegunn/seoul256.vim'
-" Plug 'whatyouhide/vim-gotham'
+" Plug 'ncm2/ncm2-bufword'
+" Plug 'ncm2/ncm2-tmux'
+" Plug 'ncm2/ncm2-path'
+" Plug 'ncm2/ncm2-jedi'
+" Plug 'ncm2/ncm2-ultisnips'
+Plug 'SirVer/ultisnips'
+
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'lionawurscht/deoplete-biblatex'
+
+" Plug 'ncm2/ncm2'
+" ncm2 requires nvim-yarp
+" Plug 'roxma/nvim-yarp'
+
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" Plug 'rakr/vim-two-firewatch'
-" Plug 'ayu-theme/ayu-vim'
 "
 " Plug 'sheerun/vim-polyglot'
 " Plug 'trevordmiller/nova-vim'
 
 Plug 'arcticicestudio/nord-vim'
-Plug 'ayu-theme/ayu-vim'
-Plug 'dikiaap/minimalist'
-Plug 'reedes/vim-colors-pencil'
 
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
@@ -117,17 +117,19 @@ set termguicolors
 " let g:airline_theme='twofirewatch' " if you have Airline installed and want the associated theme
 " let ayucolor="light"  " for light version of theme
 " let ayucolor="mirage" " for mirage version of theme
-let ayucolor="dark"   " for dark version of theme
-colorscheme ayu
-let g:airline_theme="ayu"
+" let ayucolor="dark"   " for dark version of theme
+" colorscheme ayu
+" let g:airline_theme="ayu"
 
 " colorscheme nova
 " let g:airline_theme="nova"
 
-" set background=dark
-" let g:nord_comment_brightness = 12
-" colorscheme nord
-" let g:airline_theme="nord"
+set background=dark
+let g:nord_comment_brightness = 12
+colorscheme nord
+let g:airline_theme="nord"
+" let g:alduin_Shout_Become_Ethereal = 1
+" colorscheme alduin
 
 " colorscheme minimalist
 " let g:airline_theme='minimalist'
@@ -234,8 +236,8 @@ fun! StripTrailingWhitespaces()
     call cursor(l, c)
 endfun
 
-autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call StripTrailingWhitespaces()
-autocmd bufwritepre * :call StripTrailingWhitespaces()
+" autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call StripTrailingWhitespaces()
+" autocmd bufwritepre * :call StripTrailingWhitespaces()
 
 " Make sure Vim returns to the same line when you reopen a file.
 " Thanks, Amit
@@ -263,8 +265,28 @@ nmap ga <Plug>(EasyAlign)
 
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
+autocmd BufNewFIle,BufReadPost *.tex setlocal spell spelllang=en_us
+
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
+" Use smartcase.
+call deoplete#custom#option('smart_case', v:true)
+
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
+
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function() abort
+  return deoplete#close_popup() . "\<CR>"
+endfunction
+
+if !exists('g:deoplete#omni#input_patterns')
+  let g:deoplete#omni#input_patterns = {}
+endif
+let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
+
 
 let g:LanguageClient_serverCommands = {
     \ 'python': ['pyls'],
@@ -275,3 +297,31 @@ nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+
+let g:polyglot_disabled = ['latex']
+
+
+" enable ncm2 for all buffers
+" autocmd BufEnter * call ncm2#enable_for_buffer()
+
+" :help Ncm2PopupOpen for more information
+" set completeopt=noinsert,menuone,noselect
+
+" When the <Enter> key is pressed while the popup menu is visible, it only
+" hides the menu. Use this mapping to close the menu and also start a new
+" line.
+" inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+
+" Use <TAB> to select the popup menu:
+" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" Press enter key to trigger snippet expansion
+" The parameters are the same as `:help feedkeys()`
+" inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
+
+" c-j c-k for moving in snippet
+let g:UltiSnipsExpandTrigger		= "<c-z>"
+let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
+let g:UltiSnipsRemoveSelectModeMappings = 0
