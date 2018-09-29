@@ -1,5 +1,6 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'w0rp/ale'
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
@@ -65,7 +66,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'mhinz/neovim-remote'
 " Plug 'easymotion/vim-easymotion'
 " Plug 'rliang/termedit.nvim'
-" Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 
 " Plug 'vimwiki/vimwiki'
 
