@@ -46,7 +46,7 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 pygmentize_clipboard() {
-    pbpaste | pygmentize -O "style=paraiso-dark,fontface=Source Code Pro,fontsize=76" -f rtf -l verilog | pbcopy
+    pbpaste | pygmentize -O "fontface=Source Code Pro,fontsize=76" -f rtf -l verilog | pbcopy
 }
 
 # From: https://github.com/junegunn/fzf/wiki/examples#tmux
@@ -86,3 +86,7 @@ setopt INC_APPEND_HISTORY
 addnw () {
     git diff -U0 -w --no-color | git apply --cached --ignore-whitespace --unidiff-zero -
 }
+
+eval `opam config env`
+
+source $HOME/.cargo/env

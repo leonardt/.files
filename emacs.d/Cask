@@ -1,6 +1,7 @@
 (source gnu)
 (source melpa)
 
+(depends-on "exec-path-from-shell")
 (depends-on "smart-mode-line")
 (depends-on "magit")
 (depends-on "helm")

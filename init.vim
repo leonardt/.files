@@ -54,6 +54,7 @@ Plug 'tpope/vim-rsi'
 
 Plug 'vim-python/python-syntax'
 Plug 'sheerun/vim-polyglot'
+Plug 'rhysd/vim-wasm'
 
 " Plug 'w0rp/ale'
 
