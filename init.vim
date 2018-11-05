@@ -132,6 +132,7 @@ set termguicolors
 " let g:airline_theme="nova"
 
 colorscheme plain
+let g:airline_theme="papercolor"
 
 " set background=dark
 " let g:nord_comment_brightness = 12
