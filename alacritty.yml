@@ -41,19 +41,19 @@ draw_bold_text_with_bright_colors: true
 font:
   # The normal (roman) font face to use.
   normal:
-    family: InconsolataGo Nerd Font Mono
+    family: AkkuratMonoMono
     # Style can be specified to pick a specific face.
     style: Regular
 
   # The bold font face
   bold:
-    family: InconsolataGo Nerd Font Mono
+    family: AkkuratMonoMono
     # Style can be specified to pick a specific face.
     style: Bold
 
   # The italic font face
   italic:
-    family: InconsolataGo Nerd Font Mono
+    family: AkkuratMonoMono
     # Style can be specified to pick a specific face.
     style: Italic
 
@@ -76,7 +76,7 @@ font:
   # OS X only: use thin stroke font rendering. Thin strokes are suitable
   # for retina displays, but for non-retina you probably want this set to
   # false.
-  use_thin_strokes: false
+  use_thin_strokes: true
 
 # Should display the render timer
 render_timer: false
@@ -89,26 +89,26 @@ custom_cursor_colors: false
 colors:
  # Default Colors
  primary:
-   background: '0xFFFFFF'
-   foreground: '0x262626'
+   background: '0xF1F1F1'
+   foreground: '0x424242'
  # Normal colors
  normal:
-   black:   '0x000000'
+   black:   '0x222222'
    red:     '0xc30771'
    green:   '0x10a778'
    yellow:  '0xa89c14'
    blue:    '0x008ec4'
-   magenta: '0xc30771'
+   magenta: '0x523C79'
    cyan:    '0x20a5ba'
    white:   '0xF1F1F1'
  # Bright colors
  bright:
-   black:   '0x262626'
+   black:   '0x424242'
    red:     '0xE32791'
    green:   '0x5fd7af'
    yellow:  '0xf3e430'
-   blue:    '0x20bbfc'
-   magenta: '0xa790d5'
+   blue:    '0xB6D6FD'
+   magenta: '0x6855DE'
    cyan:    '0x4fb8cc'
    white:   '0xf1f1f1'
 

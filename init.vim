@@ -7,6 +7,7 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ }
 
 Plug 'owickstrom/vim-colors-paramount'
+Plug 'andreypopp/vim-colors-plain'
 
 
 " Plug 'ncm2/ncm2-bufword'
@@ -130,7 +131,7 @@ set termguicolors
 " colorscheme nova
 " let g:airline_theme="nova"
 
-colorscheme paramount
+colorscheme plain
 
 " set background=dark
 " let g:nord_comment_brightness = 12
