@@ -6,6 +6,8 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 
+Plug 'owickstrom/vim-colors-paramount'
+
 
 " Plug 'ncm2/ncm2-bufword'
 " Plug 'ncm2/ncm2-tmux'
@@ -16,6 +18,8 @@ Plug 'SirVer/ultisnips'
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'lionawurscht/deoplete-biblatex'
+
+Plug 'neomake/neomake'
 
 " Plug 'ncm2/ncm2'
 " ncm2 requires nvim-yarp
@@ -46,6 +50,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rsi'
+Plug 'tpope/vim-dispatch'
 
 " Plug 'prabirshrestha/async.vim'
 " Plug 'prabirshrestha/vim-lsp'
@@ -125,10 +130,12 @@ set termguicolors
 " colorscheme nova
 " let g:airline_theme="nova"
 
-set background=dark
-let g:nord_comment_brightness = 12
-colorscheme nord
-let g:airline_theme="nord"
+colorscheme paramount
+
+" set background=dark
+" let g:nord_comment_brightness = 12
+" colorscheme nord
+" let g:airline_theme="nord"
 
 " colorscheme minimalist
 " let g:airline_theme='minimalist'
@@ -215,6 +222,7 @@ set wildignore+=*.orig                           " Merge resolution files
 
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>c :Make<CR>
 
 nmap <silent> <leader>d <Plug>DashSearch
 
