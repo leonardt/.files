@@ -8,6 +8,7 @@ Plug 'autozimu/LanguageClient-neovim', {
 
 Plug 'owickstrom/vim-colors-paramount'
 Plug 'andreypopp/vim-colors-plain'
+Plug 'NLKNguyen/papercolor-theme'
 
 
 " Plug 'ncm2/ncm2-bufword'
@@ -19,6 +20,7 @@ Plug 'SirVer/ultisnips'
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'lionawurscht/deoplete-biblatex'
+Plug 'Shougo/denite.nvim'
 
 Plug 'neomake/neomake'
 
@@ -131,7 +133,8 @@ set termguicolors
 " colorscheme nova
 " let g:airline_theme="nova"
 
-colorscheme plain
+" colorscheme plain
+colorscheme PaperColor
 let g:airline_theme="papercolor"
 
 " set background=dark
@@ -334,3 +337,9 @@ let g:UltiSnipsExpandTrigger		= "<c-z>"
 let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
 let g:UltiSnipsRemoveSelectModeMappings = 0
+
+nnoremap <leader>lt :<c-u>Denite vimtex<CR>
+
+call deoplete#custom#var('omni', 'input_patterns', {
+      \ 'tex': g:vimtex#re#deoplete
+      \})
