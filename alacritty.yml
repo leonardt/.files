@@ -41,19 +41,19 @@ draw_bold_text_with_bright_colors: true
 font:
   # The normal (roman) font face to use.
   normal:
-    family: iosevka
+    family: InconsolataGo Nerd Font Mono
     # Style can be specified to pick a specific face.
     style: Regular
 
   # The bold font face
   bold:
-    family: iosevka
+    family: InconsolataGo Nerd Font Mono
     # Style can be specified to pick a specific face.
     style: Bold
 
   # The italic font face
   italic:
-    family: iosevka
+    family: InconsolataGo Nerd Font Mono
     # Style can be specified to pick a specific face.
     style: Italic
 
@@ -83,7 +83,7 @@ render_timer: false
 
 # Use custom cursor colors. If true, display the cursor in the cursor.foreground
 # and cursor.background colors, otherwise invert the colors of the cursor.
-custom_cursor_colors: false
+custom_cursor_colors: true
 
 # Colors (Paramount)
 # colors:
@@ -115,38 +115,38 @@ custom_cursor_colors: false
 # PaperColor Light 256 - alacritty color config
 # https://github.com/NLKNguyen/papercolor-theme
 # https://www.reddit.com/r/vim/comments/36xzbs/vim_paper_color_theme_inspired_by_googles/crqbfpa/
-colors:
-  # Default colors
-  primary:
-    background: '0xeeeeee'
-    foreground: '0x4d4d4c'
+# colors:
+#   # Default colors
+#   primary:
+#     background: '0xeeeeee'
+#     foreground: '0x4d4d4c'
 
-  # Colors the cursor will use if `custom_cursor_colors` is true
-  cursor:
-    text: '0xf3f3f3'
-    cursor: '0x4d4d4c'
+#   # Colors the cursor will use if `custom_cursor_colors` is true
+#   cursor:
+#     text: '0xf3f3f3'
+#     cursor: '0x4d4d4c'
 
-  # Normal colors
-  normal:
-    black:   '0xededed'
-    red:     '0xd7005f'
-    green:   '0x718c00'
-    yellow:  '0xd75f00'
-    blue:    '0x4271ae'
-    magenta: '0x8959a8'
-    cyan:    '0x3e999f'
-    white:   '0x4d4d4c'
+#   # Normal colors
+#   normal:
+#     black:   '0xededed'
+#     red:     '0xd7005f'
+#     green:   '0x718c00'
+#     yellow:  '0xd75f00'
+#     blue:    '0x4271ae'
+#     magenta: '0x8959a8'
+#     cyan:    '0x3e999f'
+#     white:   '0x4d4d4c'
 
-  # Bright colors
-  bright:
-    black:   '0x949494'
-    red:     '0xd7005f'
-    green:   '0x718c00'
-    yellow:  '0xd75f00'
-    blue:    '0x4271ae'
-    magenta: '0x8959a8'
-    cyan:    '0x3e999f'
-    white:   '0xf5f5f5'
+#   # Bright colors
+#   bright:
+#     black:   '0x949494'
+#     red:     '0xd7005f'
+#     green:   '0x718c00'
+#     yellow:  '0xd75f00'
+#     blue:    '0x4271ae'
+#     magenta: '0x8959a8'
+#     cyan:    '0x3e999f'
+#     white:   '0xf5f5f5'
 
 # Copyright (c) 2017-present Arctic Ice Studio <development@arcticicestudio.com>
 # Copyright (c) 2017-present Sven Greb <code@svengreb.de>
@@ -158,31 +158,31 @@ colors:
 # References:
 #   https://github.com/jwilm/alacritty
 
-# colors:
-#   primary:
-#     background: '0x2E3440'
-#     foreground: '0xD8DEE9'
-#   cursor:
-#     text: '0x2E3440'
-#     cursor: '0xD8DEE9'
-#   normal:
-#     black: '0x3B4252'
-#     red: '0xBF616A'
-#     green: '0xA3BE8C'
-#     yellow: '0xEBCB8B'
-#     blue: '0x81A1C1'
-#     magenta: '0xB48EAD'
-#     cyan: '0x88C0D0'
-#     white: '0xE5E9F0'
-#   bright:
-#     black: '0x4C566A'
-#     red: '0xBF616A'
-#     green: '0xA3BE8C'
-#     yellow: '0xEBCB8B'
-#     blue: '0x81A1C1'
-#     magenta: '0xB48EAD'
-#     cyan: '0x8FBCBB'
-#     white: '0xECEFF4'
+colors:
+  primary:
+    background: '0x2E3440'
+    foreground: '0xD8DEE9'
+  cursor:
+    text: '0x2E3440'
+    cursor: '0xD8DEE9'
+  normal:
+    black: '0x3B4252'
+    red: '0xBF616A'
+    green: '0xA3BE8C'
+    yellow: '0xEBCB8B'
+    blue: '0x81A1C1'
+    magenta: '0xB48EAD'
+    cyan: '0x88C0D0'
+    white: '0xE5E9F0'
+  bright:
+    black: '0x4C566A'
+    red: '0xBF616A'
+    green: '0xA3BE8C'
+    yellow: '0xEBCB8B'
+    blue: '0x81A1C1'
+    magenta: '0xB48EAD'
+    cyan: '0x8FBCBB'
+    white: '0xECEFF4'
 
 # nova
 # colors:

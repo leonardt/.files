@@ -134,13 +134,13 @@ set termguicolors
 " let g:airline_theme="nova"
 
 " colorscheme plain
-colorscheme PaperColor
-let g:airline_theme="papercolor"
+" colorscheme PaperColor
+" let g:airline_theme="papercolor"
 
-" set background=dark
-" let g:nord_comment_brightness = 12
-" colorscheme nord
-" let g:airline_theme="nord"
+set background=dark
+let g:nord_comment_brightness = 12
+colorscheme nord
+let g:airline_theme="nord"
 
 " colorscheme minimalist
 " let g:airline_theme='minimalist'
@@ -227,7 +227,8 @@ set wildignore+=*.orig                           " Merge resolution files
 
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>c :Make<CR>
+nnoremap <leader>c :Dispatch<CR>
+nnoremap <leader>a :AbortDispatch<CR>
 
 nmap <silent> <leader>d <Plug>DashSearch
 
