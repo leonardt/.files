@@ -86,7 +86,3 @@ setopt INC_APPEND_HISTORY
 addnw () {
     git diff -U0 -w --no-color | git apply --cached --ignore-whitespace --unidiff-zero -
 }
-
-eval `opam config env`
-
-source $HOME/.cargo/env
