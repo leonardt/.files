@@ -1,10 +1,11 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'Valloric/YouCompleteMe', { 'do' : './install.py --clang-completer' }
 Plug 'w0rp/ale'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+" Plug 'autozimu/LanguageClient-neovim', {
+"     \ 'branch': 'next',
+"     \ 'do': 'bash install.sh',
+"     \ }
 
 Plug 'owickstrom/vim-colors-paramount'
 Plug 'andreypopp/vim-colors-plain'
@@ -18,11 +19,11 @@ Plug 'NLKNguyen/papercolor-theme'
 " Plug 'ncm2/ncm2-ultisnips'
 Plug 'SirVer/ultisnips'
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'lionawurscht/deoplete-biblatex'
-Plug 'Shougo/denite.nvim'
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'lionawurscht/deoplete-biblatex'
+" Plug 'Shougo/denite.nvim'
 
-Plug 'neomake/neomake'
+" Plug 'neomake/neomake'
 
 " Plug 'ncm2/ncm2'
 " ncm2 requires nvim-yarp
@@ -228,6 +229,7 @@ set wildignore+=*.orig                           " Merge resolution files
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>c :Dispatch<CR>
+nnoremap <leader>C :Dispatch make clean<CR>
 nnoremap <leader>a :AbortDispatch<CR>
 
 nmap <silent> <leader>d <Plug>DashSearch
@@ -281,24 +283,24 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd BufNewFIle,BufReadPost *.tex setlocal spell spelllang=en_us
 
 " Use deoplete.
-let g:deoplete#enable_at_startup = 1
-" Use smartcase.
-call deoplete#custom#option('smart_case', v:true)
-
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
-
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function() abort
-  return deoplete#close_popup() . "\<CR>"
-endfunction
-
-if !exists('g:deoplete#omni#input_patterns')
-  let g:deoplete#omni#input_patterns = {}
-endif
-let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
+" let g:deoplete#enable_at_startup = 1
+" " Use smartcase.
+" call deoplete#custom#option('smart_case', v:true)
+" 
+" " <C-h>, <BS>: close popup and delete backword char.
+" inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
+" inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
+" 
+" " <CR>: close popup and save indent.
+" inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+" function! s:my_cr_function() abort
+"   return deoplete#close_popup() . "\<CR>"
+" endfunction
+" 
+" if !exists('g:deoplete#omni#input_patterns')
+"   let g:deoplete#omni#input_patterns = {}
+" endif
+" let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
 
 
 let g:LanguageClient_serverCommands = {
@@ -339,8 +341,10 @@ let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
 let g:UltiSnipsRemoveSelectModeMappings = 0
 
-nnoremap <leader>lt :<c-u>Denite vimtex<CR>
+" nnoremap <leader>lt :<c-u>Denite vimtex<CR>
 
-call deoplete#custom#var('omni', 'input_patterns', {
-      \ 'tex': g:vimtex#re#deoplete
-      \})
+" call deoplete#custom#var('omni', 'input_patterns', {
+"       \ 'tex': g:vimtex#re#deoplete
+"       \})
+"
+let g:ycm_python_interpreter_path = '~/miniconda3/bin/python'
