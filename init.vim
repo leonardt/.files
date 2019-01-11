@@ -2,11 +2,11 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'srcery-colors/srcery-vim'
 Plug 'Valloric/YouCompleteMe', { 'do' : './install.py --clang-completer' }
-Plug 'w0rp/ale'
-" Plug 'autozimu/LanguageClient-neovim', {
-"     \ 'branch': 'next',
-"     \ 'do': 'bash install.sh',
-"     \ }
+" Plug 'w0rp/ale'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 
 Plug 'owickstrom/vim-colors-paramount'
 Plug 'andreypopp/vim-colors-plain'
@@ -66,7 +66,6 @@ Plug 'cdonovick/python-syntax'
 Plug 'sheerun/vim-polyglot'
 Plug 'rhysd/vim-wasm'
 
-" Plug 'w0rp/ale'
 
 " Plug 'SirVer/ultisnips'
 " Plug 'honza/vim-snippets'
