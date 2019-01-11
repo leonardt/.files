@@ -1,5 +1,6 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'srcery-colors/srcery-vim'
 Plug 'Valloric/YouCompleteMe', { 'do' : './install.py --clang-completer' }
 Plug 'w0rp/ale'
 " Plug 'autozimu/LanguageClient-neovim', {
@@ -61,7 +62,7 @@ Plug 'tpope/vim-dispatch'
 " Plug 'prabirshrestha/asyncomplete.vim'
 " Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
-Plug 'vim-python/python-syntax'
+Plug 'cdonovick/python-syntax'
 Plug 'sheerun/vim-polyglot'
 Plug 'rhysd/vim-wasm'
 
@@ -157,6 +158,8 @@ let g:airline_theme="nord"
 " colorscheme iceberg
 " let g:airline_theme="iceberg"
 
+" colorscheme srcery
+" let g:airline_theme="srcery"
 
 let g:python_version_2 = 0
 let g:python_highlight_all = 1
@@ -231,6 +234,8 @@ nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>c :Dispatch<CR>
 nnoremap <leader>C :Dispatch make clean<CR>
 nnoremap <leader>a :AbortDispatch<CR>
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gp :Gpush<CR>
 
 nmap <silent> <leader>d <Plug>DashSearch
 
