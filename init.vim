@@ -1,7 +1,7 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'srcery-colors/srcery-vim'
-Plug 'Valloric/YouCompleteMe', { 'do' : './install.py --clang-completer' }
+" Plug 'Valloric/YouCompleteMe', { 'do' : './install.py --clang-completer' }
 " Plug 'w0rp/ale'
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
@@ -20,7 +20,7 @@ Plug 'NLKNguyen/papercolor-theme'
 " Plug 'ncm2/ncm2-ultisnips'
 Plug 'SirVer/ultisnips'
 
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'lionawurscht/deoplete-biblatex'
 " Plug 'Shougo/denite.nvim'
 
@@ -287,7 +287,7 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd BufNewFIle,BufReadPost *.tex setlocal spell spelllang=en_us
 
 " Use deoplete.
-" let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
 " " Use smartcase.
 " call deoplete#custom#option('smart_case', v:true)
 " 
