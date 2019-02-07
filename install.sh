@@ -15,6 +15,7 @@ export PATH="$HOME/miniconda3/bin:$PATH"
 curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+brew install ripgrep
 brew install cmake  # For YCM
 brew install neovim
 pip install neovim

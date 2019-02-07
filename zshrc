@@ -9,7 +9,7 @@ export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/texlive/2017/bin/x86_64-darwin/:$PATH
 export PATH=$HOME/miniconda3/bin:$PATH
 
-export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_DEFAULT_COMMAND='rg --files'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # export WORKON_HOME=$HOME/.envs

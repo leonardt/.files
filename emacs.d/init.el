@@ -5,10 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
- '(package-selected-packages
-   (quote
-    (lean-mode lua-mode zenburn-theme web-mode warm-night-theme use-package solarized-theme smex smartparens smart-mode-line-powerline-theme rainbow-delimiters prodigy popwin pip-requirements pandoc-mode pallet nyan-mode nord-theme multiple-cursors material-theme magit lsp-ui linum-relative linum-off leuven-theme idle-highlight-mode htmlize helm-projectile helm-flyspell helm-ag gruvbox-theme gotham-theme flycheck-cask flatui-theme expand-region exec-path-from-shell evil-terminal-cursor-changer evil-surround evil-snipe evil-org evil-leader evil-commentary evil-args elpy drag-stuff diminish darktooth-theme company-lsp ample-theme aggressive-indent))))
+    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -92,12 +89,3 @@
 (sml/setup)
 
 (load-theme 'nord t)
-;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
-(require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
-;; ## end of OPAM user-setup addition for emacs / base ## keep this line
-
-(add-to-list 'load-path "~/Downloads/lua-mode")
-
-(autoload 'lua-mode "lua-mode" "Lua editing mode." t)
-(add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
-(add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
