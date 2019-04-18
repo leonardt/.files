@@ -5,7 +5,10 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default))))
+    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
+ '(package-selected-packages
+   (quote
+    (yaml-mode zenburn-theme web-mode warm-night-theme use-package solarized-theme smex smartparens smart-mode-line-powerline-theme rainbow-delimiters prodigy popwin pip-requirements pandoc-mode pallet nyan-mode nord-theme multiple-cursors material-theme magit lsp-ui linum-relative linum-off leuven-theme lean-mode idle-highlight-mode htmlize helm-projectile helm-flyspell helm-ag gruvbox-theme gotham-theme flycheck-cask flatui-theme expand-region exec-path-from-shell evil-terminal-cursor-changer evil-surround evil-snipe evil-org evil-leader evil-commentary evil-args elpy drag-stuff diminish darktooth-theme company-lsp ample-theme aggressive-indent))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -24,6 +27,8 @@
 (menu-bar-mode -1)
 (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+
+(setq markdown-command "pandoc")
 
 (require 'evil)
 (evil-mode 1)

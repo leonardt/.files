@@ -7,6 +7,8 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'donRaphaco/neotex', { 'for': 'tex' }
 
 Plug 'owickstrom/vim-colors-paramount'
 Plug 'andreypopp/vim-colors-plain'
@@ -142,7 +144,7 @@ set termguicolors
 " let g:airline_theme="papercolor"
 
 set background=dark
-let g:nord_comment_brightness = 12
+" let g:nord_comment_brightness = 12
 colorscheme nord
 let g:airline_theme="nord"
 
@@ -425,3 +427,5 @@ let g:UltiSnipsRemoveSelectModeMappings = 0
 "       \})
 "
 let g:ycm_python_interpreter_path = '~/miniconda3/bin/python'
+
+let g:mkdp_auto_close = 0
