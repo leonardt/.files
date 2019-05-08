@@ -91,3 +91,5 @@ addnw () {
 }
 
 alias gco='git checkout'
+
+alias skim-open='open -a "Skim"'
