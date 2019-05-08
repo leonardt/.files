@@ -39,6 +39,8 @@ re-downloaded in order to locate PACKAGE."
 (package-initialize)
 
 (require-package 'evil)
+(require-package 'evil-commentary)
+(require-package 'evil-leader)
 (require-package 'magit)
 (require-package 'nord-theme)
 (require-package 'exec-path-from-shell)
@@ -50,9 +52,25 @@ re-downloaded in order to locate PACKAGE."
       evil-want-C-u-scroll t
       evil-want-C-w-in-emacs-state t)
 
+(require 'magit)
+
 (require 'evil)
 (evil-mode t)
 
-(require 'magit)
+(require 'evil-commentary)
+(evil-commentary-mode)
+
+(require 'evil-leader)
+(global-evil-leader-mode)
+(evil-leader/set-leader "<SPC>")
+
+(evil-leader/set-key
+ "c" 'compile
+ "r" 'recompile
+ "e s" 'eshell
+ "g s" 'magit-status
+ "g p s" 'magit-push
+ "g p l" 'magit-pull
+ "g c" 'magit-commit)
 
 (load-theme 'nord t)
