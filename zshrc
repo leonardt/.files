@@ -93,3 +93,5 @@ addnw () {
 alias gco='git checkout'
 
 alias skim-open='open -a "Skim"'
+
+export PATH=$HOME/.local/bin:$PATH

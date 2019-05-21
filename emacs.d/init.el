@@ -45,6 +45,8 @@ re-downloaded in order to locate PACKAGE."
 (require-package 'evil)
 (require-package 'evil-commentary)
 (require-package 'evil-leader)
+(require-package 'evil-tabs)
+(require-package 'evil-collection)
 (require-package 'magit)
 (require-package 'nord-theme)
 (require-package 'exec-path-from-shell)
@@ -55,12 +57,44 @@ re-downloaded in order to locate PACKAGE."
 (require-package 'yaml-mode)
 (require-package 'dashboard)
 (require-package 'rainbow-delimiters)
+(require-package 'flycheck)
+(require-package 'lsp-mode)
+(require-package 'lsp-ui)
+(require-package 'company)
+(require-package 'company-lsp)
+
+(require 'lsp-ui)
+(add-hook 'lsp-mode-hook 'lsp-ui-mode)
+
+(require 'company-lsp)
+(push 'company-lsp company-backends)
+(add-hook 'after-init-hook 'global-company-mode)
+
+(require 'lsp-mode)
+(add-hook 'python-mode-hook #'lsp)
+(add-hook 'c++-mode-hook #'lsp)
 
 (dashboard-setup-startup-hook)
 
 (require 'undo-tree)
 (global-undo-tree-mode)
 (setq undo-tree-auto-save-history t)
+
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+;; from https://github.com/piger/flycheck-pycodestyle/blob/master/flycheck-pycodestyle.el
+;; but so simple, I just copied it here
+;; (require 'flycheck)
+;; (flycheck-define-checker python-pycodestyle
+;;   "A Python syntax and style checker using pycodestyle (former pep8)."
+
+;;   :command ("pycodestyle" source-inplace)
+;;   :error-patterns
+;;   ((error line-start (file-name) ":" line ":" column ":" (message) line-end))
+;;   :modes python-mode)
+
+;; (add-to-list 'flycheck-checkers 'python-pycodestyle)
+;; (setq flycheck-verilog-verilator-executable "exec-verilator.sh")
 
 
 (setq backup-directory-alist
@@ -127,8 +161,12 @@ re-downloaded in order to locate PACKAGE."
 
 (require 'yaml-mode)
 
+(setq evil-want-keybinding nil)
+
 (require 'evil)
 (evil-mode t)
+
+(evil-collection-init)
 
 (require 'evil-commentary)
 (evil-commentary-mode)
@@ -136,6 +174,8 @@ re-downloaded in order to locate PACKAGE."
 (require 'evil-leader)
 (global-evil-leader-mode)
 (evil-leader/set-leader "<SPC>")
+
+(global-evil-tabs-mode t)
 
 (evil-leader/set-key
  "x" 'smex
@@ -147,5 +187,16 @@ re-downloaded in order to locate PACKAGE."
  "g p s" 'magit-push
  "g p l" 'magit-pull
  "g c" 'magit-commit)
+
+;; Verilog mode disable auto formatting                                   
+
+(eval-after-load 'verilog-mode
+    '(progn
+        ;; same for all the electric-verilog-* commands in                
+        ;; the mode's map (see verilog-mode.el)                      
+        (define-key verilog-mode-map (kbd ";") 'self-insert-command)
+        (define-key verilog-mode-map (kbd ":") 'self-insert-command)
+        (define-key verilog-mode-map (kbd "RET") 'evil-ret)
+        (define-key verilog-mode-map (kbd "TAB") 'tab-to-tab-stop)))
 
 (load-theme 'nord t)
