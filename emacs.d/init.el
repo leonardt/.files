@@ -5,7 +5,8 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (yaml-mode magit nord-theme exec-path-from-shell evil))))
+    (cmake-mode yaml-mode magit nord-theme exec-path-from-shell evil)))
+ '(safe-local-variable-values (quote ((flycheck-gcc-language-standard . c++17)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -50,18 +51,19 @@ re-downloaded in order to locate PACKAGE."
 (require-package 'magit)
 (require-package 'nord-theme)
 (require-package 'exec-path-from-shell)
-(require-package 'fzf)
 (require-package 'projectile)
-(require-package 'smex)
 (require-package 'clang-format)
 (require-package 'yaml-mode)
-(require-package 'dashboard)
+;; (require-package 'dashboard)
 (require-package 'rainbow-delimiters)
 (require-package 'flycheck)
 (require-package 'lsp-mode)
 (require-package 'lsp-ui)
 (require-package 'company)
 (require-package 'company-lsp)
+(require-package 'cmake-mode)
+(require-package 'helm)
+(require-package 'helm-projectile)
 
 (require 'lsp-ui)
 (add-hook 'lsp-mode-hook 'lsp-ui-mode)
@@ -74,7 +76,7 @@ re-downloaded in order to locate PACKAGE."
 (add-hook 'python-mode-hook #'lsp)
 (add-hook 'c++-mode-hook #'lsp)
 
-(dashboard-setup-startup-hook)
+;; (dashboard-setup-startup-hook)
 
 (require 'undo-tree)
 (global-undo-tree-mode)
@@ -154,10 +156,11 @@ re-downloaded in order to locate PACKAGE."
       evil-want-C-w-in-emacs-state t)
 
 (require 'magit)
-(require 'fzf)
 (require 'projectile)
-(require 'smex)
-(smex-initialize)
+(require 'helm-config)
+(require 'helm-projectile)
+(projectile-global-mode)
+(helm-projectile-on)
 
 (require 'yaml-mode)
 
@@ -177,9 +180,13 @@ re-downloaded in order to locate PACKAGE."
 
 (global-evil-tabs-mode t)
 
+(define-key evil-normal-state-map (kbd "C-p") 'helm-projectile)
+
 (evil-leader/set-key
- "x" 'smex
- "f" 'fzf
+ "x" 'helm-M-x
+ "m" 'helm-mini
+ "b" 'helm-buffers-list
+ "f" 'helm-find-files
  "c" 'compile
  "r" 'recompile
  "e s" 'eshell
