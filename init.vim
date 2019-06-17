@@ -95,6 +95,8 @@ Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 Plug 'google/vim-glaive'
 
+Plug 'goerz/jupytext.vim'
+
 call plug#end()
 
 call glaive#Install()
@@ -233,6 +235,9 @@ autocmd FileType make setlocal noexpandtab
 
 let mapleader="\<Space>"
 tnoremap <Esc> <C-\><C-n>
+" adapted from https://github.com/tpope/vim-rsi/blob/master/plugin/rsi.vim
+tnoremap        <C-A> <C-O>^
+tnoremap <expr> <C-E> col('.')>strlen(getline('.'))<bar><bar>pumvisible()?"\<Lt>C-E>":"\<Lt>End>"
 
 set wildmenu
 set wildmode=list:longest

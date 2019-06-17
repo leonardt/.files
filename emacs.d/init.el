@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (cmake-mode yaml-mode magit nord-theme exec-path-from-shell evil)))
+    (pbcopy cmake-mode yaml-mode magit nord-theme exec-path-from-shell evil)))
  '(safe-local-variable-values (quote ((flycheck-gcc-language-standard . c++17)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

@@ -8,7 +8,7 @@ autoload -Uz compinit; compinit
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/texlive/2017/bin/x86_64-darwin/:$PATH
 export PATH=$HOME/miniconda3/bin:$PATH
-source /Users/lenny/miniconda3/etc/profile.d/conda.sh
+source $HOME/miniconda3/etc/profile.d/conda.sh
 # conda activate
 
 export FZF_DEFAULT_COMMAND='rg --files'
