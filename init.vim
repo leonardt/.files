@@ -10,6 +10,8 @@ Plug 'autozimu/LanguageClient-neovim', {
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'donRaphaco/neotex', { 'for': 'tex' }
 
+Plug 'rhysd/vim-clang-format'
+
 Plug 'owickstrom/vim-colors-paramount'
 Plug 'andreypopp/vim-colors-plain'
 Plug 'NLKNguyen/papercolor-theme'
@@ -114,6 +116,7 @@ call glaive#Install()
 
 if has('nvim')
   let $VISUAL = 'nvr -cc split --remote-wait'
+  autocmd FileType gitcommit set bufhidden=delete
 endif
 
 set termguicolors
