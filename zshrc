@@ -44,8 +44,8 @@ source $HOME/.files/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # export DYLD_LIBRARY_PATH=$HOME/miniconda3/lib:$DYLD_LIBRARY_PATH
 export PYTHON_CONFIG=python3-config
-export PATH="/usr/local/opt/llvm/bin:$PATH"
-export PATH="/usr/local/opt/llvm/bin:$PATH"
+# export PATH="/usr/local/opt/llvm/bin:$PATH"
+# export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 pygmentize_clipboard() {
     pbpaste | pygmentize -O "style=bw,fontface=InconsolataGo Nerd Font Mono,fontsize=76" -f rtf -l python | pbcopy

@@ -1,29 +1,34 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'srcery-colors/srcery-vim'
+Plug 'nikvdp/neomux'
+
+Plug 'rhysd/vim-clang-format'
+" Plug 'srcery-colors/srcery-vim'
 " Plug 'Valloric/YouCompleteMe', { 'do' : './install.py --clang-completer' }
 " Plug 'w0rp/ale'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+" Plug 'autozimu/LanguageClient-neovim', {
+"     \ 'branch': 'next',
+"     \ 'do': 'bash install.sh',
+"     \ }
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'donRaphaco/neotex', { 'for': 'tex' }
 
-Plug 'owickstrom/vim-colors-paramount'
-Plug 'andreypopp/vim-colors-plain'
-Plug 'NLKNguyen/papercolor-theme'
+" Plug 'owickstrom/vim-colors-paramount'
+" Plug 'andreypopp/vim-colors-plain'
+" Plug 'NLKNguyen/papercolor-theme'
 
 
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-tmux'
-Plug 'ncm2/ncm2-path'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Plug 'ncm2/ncm2-bufword'
+" Plug 'ncm2/ncm2-tmux'
+" Plug 'ncm2/ncm2-path'
 " Plug 'ncm2/ncm2-jedi'
-Plug 'ncm2/ncm2-ultisnips'
+" Plug 'ncm2/ncm2-ultisnips'
 Plug 'SirVer/ultisnips'
 
-Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
+" Plug 'ncm2/ncm2'
+" Plug 'roxma/nvim-yarp'
 
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'lionawurscht/deoplete-biblatex'
@@ -51,6 +56,7 @@ Plug 'ruanyl/vim-gh-line'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'yuki-ycino/fzf-preview.vim'
 " Plug 'Raimondi/delimitMate'
 Plug 'jiangmiao/auto-pairs'
 
@@ -228,6 +234,17 @@ set smartcase
 set noshowmode
 set hidden
 
+set nobackup
+set nowritebackup
+
+set cmdheight=2
+
+set updatetime=300
+
+set shortmess+=c
+
+set signcolumn=yes
+
 autocmd FileType c,cpp setlocal commentstring=//\ %s
 autocmd FileType make setlocal noexpandtab
 
@@ -250,8 +267,8 @@ set wildignore+=*.pyc                            " Python byte code
 
 set wildignore+=*.orig                           " Merge resolution files
 
-nnoremap <leader>f :Files<CR>
-nnoremap <leader>b :Buffers<CR>
+nnoremap <c-p> :FzfPreviewDirectoryFiles<CR>
+nnoremap <leader>b :FzfPreviewBuffers<CR>
 nnoremap <leader>c :Dispatch<CR>
 nnoremap <leader>C :Dispatch make clean<CR>
 nnoremap <leader>a :AbortDispatch<CR>
@@ -296,7 +313,7 @@ map <Leader>k <Plug>(easymotion-k)
 map <Leader>h <Plug>(easymotion-linebackward)
 
 " Append --no-height for neovim terminal
-let $FZF_DEFAULT_OPTS .= ' --no-height'
+" let $FZF_DEFAULT_OPTS .= ' --no-height'
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -309,74 +326,74 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd BufNewFIle,BufReadPost *.tex setlocal spell spelllang=en_us
 
 " enable ncm2 for all buffers
-autocmd BufEnter * call ncm2#enable_for_buffer()
+" autocmd BufEnter * call ncm2#enable_for_buffer()
 
 " IMPORTANT: :help Ncm2PopupOpen for more information
-set completeopt=noinsert,menuone,noselect
+" set completeopt=noinsert,menuone,noselect
 
 
 " When the <Enter> key is pressed while the popup menu is visible, it only
 " hides the menu. Use this mapping to close the menu and also start a new
-" line.
-inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
-
-augroup my_cm_setup
-autocmd!
-autocmd BufEnter * call ncm2#enable_for_buffer()
-autocmd Filetype tex call ncm2#register_source({
-        \ 'name' : 'vimtex-cmds',
-        \ 'priority': 8, 
-        \ 'complete_length': -1,
-        \ 'scope': ['tex'],
-        \ 'matcher': {'name': 'prefix', 'key': 'word'},
-        \ 'word_pattern': '\w+',
-        \ 'complete_pattern': g:vimtex#re#ncm2#cmds,
-        \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
-        \ })
-autocmd Filetype tex call ncm2#register_source({
-        \ 'name' : 'vimtex-labels',
-        \ 'priority': 8, 
-        \ 'complete_length': -1,
-        \ 'scope': ['tex'],
-        \ 'matcher': {'name': 'combine',
-        \             'matchers': [
-        \               {'name': 'substr', 'key': 'word'},
-        \               {'name': 'substr', 'key': 'menu'},
-        \             ]},
-        \ 'word_pattern': '\w+',
-        \ 'complete_pattern': g:vimtex#re#ncm2#labels,
-        \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
-        \ })
-autocmd Filetype tex call ncm2#register_source({
-        \ 'name' : 'vimtex-files',
-        \ 'priority': 8, 
-        \ 'complete_length': -1,
-        \ 'scope': ['tex'],
-        \ 'matcher': {'name': 'combine',
-        \             'matchers': [
-        \               {'name': 'abbrfuzzy', 'key': 'word'},
-        \               {'name': 'abbrfuzzy', 'key': 'abbr'},
-        \             ]},
-        \ 'word_pattern': '\w+',
-        \ 'complete_pattern': g:vimtex#re#ncm2#files,
-        \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
-        \ })
-autocmd Filetype tex call ncm2#register_source({
-        \ 'name' : 'bibtex',
-        \ 'priority': 8, 
-        \ 'complete_length': -1,
-        \ 'scope': ['tex'],
-        \ 'matcher': {'name': 'combine',
-        \             'matchers': [
-        \               {'name': 'prefix', 'key': 'word'},
-        \               {'name': 'abbrfuzzy', 'key': 'abbr'},
-        \               {'name': 'abbrfuzzy', 'key': 'menu'},
-        \             ]},
-        \ 'word_pattern': '\w+',
-        \ 'complete_pattern': g:vimtex#re#ncm2#bibtex,
-        \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
-        \ })
-augroup END
+" " line.
+" inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+" 
+" augroup my_cm_setup
+" autocmd!
+" autocmd BufEnter * call ncm2#enable_for_buffer()
+" autocmd Filetype tex call ncm2#register_source({
+"         \ 'name' : 'vimtex-cmds',
+"         \ 'priority': 8, 
+"         \ 'complete_length': -1,
+"         \ 'scope': ['tex'],
+"         \ 'matcher': {'name': 'prefix', 'key': 'word'},
+"         \ 'word_pattern': '\w+',
+"         \ 'complete_pattern': g:vimtex#re#ncm2#cmds,
+"         \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+"         \ })
+" autocmd Filetype tex call ncm2#register_source({
+"         \ 'name' : 'vimtex-labels',
+"         \ 'priority': 8, 
+"         \ 'complete_length': -1,
+"         \ 'scope': ['tex'],
+"         \ 'matcher': {'name': 'combine',
+"         \             'matchers': [
+"         \               {'name': 'substr', 'key': 'word'},
+"         \               {'name': 'substr', 'key': 'menu'},
+"         \             ]},
+"         \ 'word_pattern': '\w+',
+"         \ 'complete_pattern': g:vimtex#re#ncm2#labels,
+"         \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+"         \ })
+" autocmd Filetype tex call ncm2#register_source({
+"         \ 'name' : 'vimtex-files',
+"         \ 'priority': 8, 
+"         \ 'complete_length': -1,
+"         \ 'scope': ['tex'],
+"         \ 'matcher': {'name': 'combine',
+"         \             'matchers': [
+"         \               {'name': 'abbrfuzzy', 'key': 'word'},
+"         \               {'name': 'abbrfuzzy', 'key': 'abbr'},
+"         \             ]},
+"         \ 'word_pattern': '\w+',
+"         \ 'complete_pattern': g:vimtex#re#ncm2#files,
+"         \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+"         \ })
+" autocmd Filetype tex call ncm2#register_source({
+"         \ 'name' : 'bibtex',
+"         \ 'priority': 8, 
+"         \ 'complete_length': -1,
+"         \ 'scope': ['tex'],
+"         \ 'matcher': {'name': 'combine',
+"         \             'matchers': [
+"         \               {'name': 'prefix', 'key': 'word'},
+"         \               {'name': 'abbrfuzzy', 'key': 'abbr'},
+"         \               {'name': 'abbrfuzzy', 'key': 'menu'},
+"         \             ]},
+"         \ 'word_pattern': '\w+',
+"         \ 'complete_pattern': g:vimtex#re#ncm2#bibtex,
+"         \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+"         \ })
+" augroup END
 
 " Use deoplete.
 " let g:deoplete#enable_at_startup = 1
@@ -399,15 +416,15 @@ augroup END
 " let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
 
 
-let g:LanguageClient_serverCommands = {
-    \ 'python': ['pyls'],
-    \ }
-
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-" Or map each action separately
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+" let g:LanguageClient_serverCommands = {
+"     \ 'python': ['pyls'],
+"     \ }
+" 
+" nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+" " Or map each action separately
+" nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+" nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+" nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
 let g:polyglot_disabled = ['latex']
 
@@ -431,6 +448,119 @@ let g:polyglot_disabled = ['latex']
 " The parameters are the same as `:help feedkeys()`
 " inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
 
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+if has('patch8.1.1068')
+  " Use `complete_info` if your (Neo)Vim version supports it.
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
+
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Applying codeAction to the selected region.
+" Example: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap keys for applying codeAction to the current line.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Introduce function text object
+" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
+
+" Use <TAB> for selections ranges.
+" NOTE: Requires 'textDocument/selectionRange' support from the language server.
+" coc-tsserver, coc-python are the examples of servers that support it.
+nmap <silent> <TAB> <Plug>(coc-range-select)
+xmap <silent> <TAB> <Plug>(coc-range-select)
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+
+" Add `:Fold` command to fold current buffer.
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Add (Neo)Vim's native statusline support.
+" NOTE: Please see `:h coc-status` for integrations with external plugins that
+" provide custom statusline: lightline.vim, vim-airline.
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" Mappings using CoCList:
+" Show all diagnostics.
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions.
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" Show commands.
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document.
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols.
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list.
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
 " c-j c-k for moving in snippet
 let g:UltiSnipsExpandTrigger		= "<c-z>"
 let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
@@ -446,3 +576,4 @@ let g:UltiSnipsRemoveSelectModeMappings = 0
 let g:ycm_python_interpreter_path = '~/miniconda3/bin/python'
 
 let g:mkdp_auto_close = 0
+
