@@ -13,11 +13,6 @@ Plug 'rhysd/vim-clang-format'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'donRaphaco/neotex', { 'for': 'tex' }
 
-" Plug 'owickstrom/vim-colors-paramount'
-" Plug 'andreypopp/vim-colors-plain'
-" Plug 'NLKNguyen/papercolor-theme'
-
-
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Plug 'ncm2/ncm2-bufword'
@@ -101,6 +96,8 @@ Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 Plug 'google/vim-glaive'
 
+Plug 'goerz/jupytext.vim'
+
 call plug#end()
 
 call glaive#Install()
@@ -118,6 +115,7 @@ call glaive#Install()
 
 if has('nvim')
   let $VISUAL = 'nvr -cc split --remote-wait'
+  autocmd FileType gitcommit set bufhidden=delete
 endif
 
 set termguicolors
@@ -250,6 +248,9 @@ autocmd FileType make setlocal noexpandtab
 
 let mapleader="\<Space>"
 tnoremap <Esc> <C-\><C-n>
+" adapted from https://github.com/tpope/vim-rsi/blob/master/plugin/rsi.vim
+tnoremap        <C-A> <C-O>^
+tnoremap <expr> <C-E> col('.')>strlen(getline('.'))<bar><bar>pumvisible()?"\<Lt>C-E>":"\<Lt>End>"
 
 set wildmenu
 set wildmode=list:longest

@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (evil-org cmake-mode yaml-mode magit nord-theme exec-path-from-shell evil)))
+    (pbcopy evil-org cmake-mode yaml-mode magit nord-theme exec-path-from-shell evil)))
  '(safe-local-variable-values (quote ((flycheck-gcc-language-standard . c++17)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -49,6 +49,7 @@ re-downloaded in order to locate PACKAGE."
 (require-package 'evil-leader)
 (require-package 'evil-tabs)
 (require-package 'evil-collection)
+(require-package 'evil-magit)
 (require-package 'magit)
 (require-package 'nord-theme)
 (require-package 'exec-path-from-shell)
@@ -170,7 +171,10 @@ re-downloaded in order to locate PACKAGE."
 (require 'evil)
 (evil-mode t)
 
+(require 'evil-collection)
 (evil-collection-init)
+
+(require 'evil-magit)
 
 (require 'evil-commentary)
 (evil-commentary-mode)
