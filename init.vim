@@ -1,5 +1,6 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'hzchirs/vim-material'
 Plug 'nikvdp/neomux'
 
 Plug 'rhysd/vim-clang-format'
@@ -164,10 +165,15 @@ set termguicolors
 " colorscheme PaperColor
 " let g:airline_theme="papercolor"
 
+" set background=dark
+" " let g:nord_comment_brightness = 12
+" colorscheme nord
+" let g:airline_theme="nord"
+
+let g:material_style='oceanic'
 set background=dark
-" let g:nord_comment_brightness = 12
-colorscheme nord
-let g:airline_theme="nord"
+colorscheme vim-material
+let g:airline_theme="material"
 
 " colorscheme minimalist
 " let g:airline_theme='minimalist'
