@@ -1,6 +1,6 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'hzchirs/vim-material'
+Plug 'ryanoasis/vim-devicons'
 Plug 'nikvdp/neomux'
 
 Plug 'rhysd/vim-clang-format'
@@ -165,15 +165,9 @@ set termguicolors
 " colorscheme PaperColor
 " let g:airline_theme="papercolor"
 
-" set background=dark
-" " let g:nord_comment_brightness = 12
-" colorscheme nord
-" let g:airline_theme="nord"
-
-let g:material_style='oceanic'
 set background=dark
-colorscheme vim-material
-let g:airline_theme="material"
+colorscheme nord
+let g:airline_theme="nord"
 
 " colorscheme minimalist
 " let g:airline_theme='minimalist'
@@ -584,3 +578,6 @@ let g:ycm_python_interpreter_path = '~/miniconda3/bin/python'
 
 let g:mkdp_auto_close = 0
 
+let g:fzf_preview_filelist_command = 'rg --files --hidden --follow --no-messages -g \!"* *"' " Installed ripgrep
+
+autocmd TermOpen * setlocal nonumber
