@@ -71,6 +71,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'cdonovick/python-syntax'
 Plug 'sheerun/vim-polyglot'
 Plug 'rhysd/vim-wasm'
+Plug 'vhda/verilog_systemverilog.vim'
 
 
 " Plug 'SirVer/ultisnips'
@@ -268,7 +269,7 @@ set wildignore+=*.pyc                            " Python byte code
 
 set wildignore+=*.orig                           " Merge resolution files
 
-nnoremap <c-p> :FzfPreviewDirectoryFiles<CR>
+nnoremap <c-p> :FzfPreviewProjectFiles<CR>
 nnoremap <leader>b :FzfPreviewBuffers<CR>
 nnoremap <leader>c :Dispatch<CR>
 nnoremap <leader>C :Dispatch make clean<CR>
