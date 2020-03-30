@@ -1,5 +1,6 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'whatyouhide/vim-gotham'
 Plug 'ryanoasis/vim-devicons'
 Plug 'nikvdp/neomux'
 
@@ -121,8 +122,9 @@ endif
 
 set termguicolors
 
-" set background=dark
-" colorscheme gotham
+set background=dark
+colorscheme gotham
+let g:airline_theme="gotham"
 
 " let g:hybrid_custom_term_colors = 1
 " set background=dark
@@ -165,9 +167,9 @@ set termguicolors
 " colorscheme PaperColor
 " let g:airline_theme="papercolor"
 
-set background=dark
-colorscheme nord
-let g:airline_theme="nord"
+" set background=dark
+" colorscheme nord
+" let g:airline_theme="nord"
 
 " colorscheme minimalist
 " let g:airline_theme='minimalist'
