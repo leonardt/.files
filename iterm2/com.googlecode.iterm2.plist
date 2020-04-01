@@ -6310,9 +6310,9 @@
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>582 591 928 394 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>538 337 650 437 0 0 1680 1027 </string>
+	<string>303 22 1232 949 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 0 1680 1027 0 0 1680 1050 </string>
+	<string>843 0 834 1027 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>2 273 822 605 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -8076,9 +8076,9 @@
 	<key>NoSyncInstallationId</key>
 	<string>1C6F38FC-7425-411A-BC25-F869DBB66BE1</string>
 	<key>NoSyncLastTipTime</key>
-	<real>607294104.07101905</real>
+	<real>607380570.26700699</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>2</integer>
+	<integer>4</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -8883,12 +8883,13 @@
 		<string>0022</string>
 		<string>0058</string>
 		<string>0065</string>
+		<string>0072</string>
 		<string>0001</string>
 		<string>0037</string>
 		<string>000</string>
 		<string>0044</string>
 		<string>0051</string>
-		<string>0072</string>
+		<string>0073</string>
 	</array>
 	<key>PointerActions</key>
 	<dict>
@@ -8936,17 +8937,21 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-03-30T15:55:54Z</date>
+	<date>2020-03-31T15:55:56Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
-	<false/>
+	<true/>
 	<key>SoundForEsc</key>
 	<false/>
 	<key>TabStyle</key>
 	<integer>0</integer>
 	<key>TabStyleWithAutomaticOption</key>
 	<integer>5</integer>
+	<key>TerminalMargin</key>
+	<integer>20</integer>
+	<key>TerminalVMargin</key>
+	<integer>20</integer>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
 	<key>WordCharacters</key>
