@@ -1,5 +1,6 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'chuling/equinusocio-material.vim'
 Plug 'whatyouhide/vim-gotham'
 Plug 'ryanoasis/vim-devicons'
 Plug 'nikvdp/neomux'
@@ -8,21 +9,21 @@ Plug 'rhysd/vim-clang-format'
 " Plug 'srcery-colors/srcery-vim'
 " Plug 'Valloric/YouCompleteMe', { 'do' : './install.py --clang-completer' }
 " Plug 'w0rp/ale'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+" Plug 'autozimu/LanguageClient-neovim', {
+"     \ 'branch': 'next',
+"     \ 'do': 'bash install.sh',
+"     \ }
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-Plug 'donRaphaco/neotex', { 'for': 'tex' }
+" Plug 'donRaphaco/neotex', { 'for': 'tex' }
 
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-tmux'
-Plug 'ncm2/ncm2-path'
-Plug 'ncm2/ncm2-jedi'
-Plug 'ncm2/ncm2-ultisnips'
-Plug 'SirVer/ultisnips'
+" Plug 'ncm2/ncm2-bufword'
+" Plug 'ncm2/ncm2-tmux'
+" Plug 'ncm2/ncm2-path'
+" Plug 'ncm2/ncm2-jedi'
+" Plug 'ncm2/ncm2-ultisnips'
+" Plug 'SirVer/ultisnips'
 
  Plug 'ncm2/ncm2'
  Plug 'roxma/nvim-yarp'
@@ -49,7 +50,8 @@ Plug 'ruanyl/vim-gh-line'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'yuki-ycino/fzf-preview.vim'
+Plug 'yuki-ycino/fzf-preview.vim', { 'do': ':FzfPreviewInstall' }
+
 " Plug 'Raimondi/delimitMate'
 Plug 'jiangmiao/auto-pairs'
 
@@ -164,9 +166,14 @@ set termguicolors
 " colorscheme PaperColor
 " let g:airline_theme="papercolor"
 
-set background=dark
-colorscheme nord
-let g:airline_theme="nord"
+" set background=dark
+" colorscheme nord
+" let g:airline_theme="nord"
+
+let g:equinusocio_material_style = 'pure'
+colorscheme equinusocio_material
+let g:airline_theme = 'equinusocio_material'
+set fillchars+=vert:│
 
 " colorscheme minimalist
 " let g:airline_theme='minimalist'
@@ -240,7 +247,14 @@ set updatetime=300
 
 set shortmess+=c
 
-set signcolumn=yes
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
 
 autocmd FileType c,cpp setlocal commentstring=//\ %s
 autocmd FileType make setlocal noexpandtab
@@ -267,8 +281,8 @@ set wildignore+=*.pyc                            " Python byte code
 
 set wildignore+=*.orig                           " Merge resolution files
 
-nnoremap <c-p> :FzfPreviewProjectFiles<CR>
-nnoremap <leader>b :FzfPreviewBuffers<CR>
+nnoremap <c-p> :CocCommand fzf-preview.ProjectFiles<CR>
+nnoremap <leader>b :CocCommand fzf-preview.Buffers<CR>
 nnoremap <leader>c :Dispatch<CR>
 nnoremap <leader>C :Dispatch make clean<CR>
 nnoremap <leader>a :AbortDispatch<CR>
@@ -585,3 +599,27 @@ let g:mkdp_auto_close = 0
 let g:fzf_preview_filelist_command = 'rg --files --hidden --follow --no-messages -g \!"* *"' " Installed ripgrep
 
 autocmd TermOpen * setlocal nonumber
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
