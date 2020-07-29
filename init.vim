@@ -50,7 +50,7 @@ Plug 'ruanyl/vim-gh-line'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'yuki-ycino/fzf-preview.vim', { 'do': ':FzfPreviewInstall' }
+" Plug 'yuki-ycino/fzf-preview.vim'
 
 " Plug 'Raimondi/delimitMate'
 Plug 'jiangmiao/auto-pairs'
@@ -166,14 +166,14 @@ set termguicolors
 " colorscheme PaperColor
 " let g:airline_theme="papercolor"
 
-" set background=dark
-" colorscheme nord
-" let g:airline_theme="nord"
+set background=dark
+colorscheme nord
+let g:airline_theme="nord"
 
-let g:equinusocio_material_style = 'pure'
-colorscheme equinusocio_material
-let g:airline_theme = 'equinusocio_material'
-set fillchars+=vert:│
+" let g:equinusocio_material_style = 'pure'
+" colorscheme equinusocio_material
+" let g:airline_theme = 'equinusocio_material'
+" set fillchars+=vert:│
 
 " colorscheme minimalist
 " let g:airline_theme='minimalist'
