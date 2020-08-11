@@ -41,6 +41,7 @@ Plug 'vim-airline/vim-airline-themes'
 " Plug 'trevordmiller/nova-vim'
 
 Plug 'arcticicestudio/nord-vim'
+Plug 'ayu-theme/ayu-vim'
 
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
@@ -157,7 +158,7 @@ set termguicolors
 " let ayucolor="mirage" " for mirage version of theme
 " let ayucolor="dark"   " for dark version of theme
 " colorscheme ayu
-" let g:airline_theme="ayu"
+" let g:airline_theme="ayu_mirage"
 
 " colorscheme nova
 " let g:airline_theme="nova"
@@ -166,14 +167,14 @@ set termguicolors
 " colorscheme PaperColor
 " let g:airline_theme="papercolor"
 
-set background=dark
-colorscheme nord
-let g:airline_theme="nord"
+" set background=dark
+" colorscheme nord
+" let g:airline_theme="nord"
 
-" let g:equinusocio_material_style = 'pure'
-" colorscheme equinusocio_material
-" let g:airline_theme = 'equinusocio_material'
-" set fillchars+=vert:│
+let g:equinusocio_material_style = 'pure'
+colorscheme equinusocio_material
+let g:airline_theme = 'equinusocio_material'
+set fillchars+=vert:│
 
 " colorscheme minimalist
 " let g:airline_theme='minimalist'
@@ -623,3 +624,5 @@ if exists('*complete_info')
 else
   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
+
+let g:tex_flavor = 'latex'
