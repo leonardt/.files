@@ -7,16 +7,9 @@ autoload -Uz compinit; compinit
 
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/texlive/2017/bin/x86_64-darwin/:$PATH
-export PATH=$HOME/miniconda3/bin:$PATH
-# source $HOME/miniconda3/etc/profile.d/conda.sh  # commented out by conda initialize
-# conda activate
 
 export FZF_DEFAULT_COMMAND='rg --files'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# export WORKON_HOME=$HOME/.envs
-# mkdir -p $WORKON_HOME
-# source virtualenvwrapper.sh
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
@@ -36,16 +29,10 @@ clean_pycache () {
 # added by travis gem
 [ -f /Users/lenny/.travis/travis.sh ] && source /Users/lenny/.travis/travis.sh
 
-export WORKON_HOME=~/.virtual_envs
-# source $HOME/miniconda3/bin/virtualenvwrapper.sh
-
 # Note: according to docs, should be at the end of zshrc
 source $HOME/.files/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# export DYLD_LIBRARY_PATH=$HOME/miniconda3/lib:$DYLD_LIBRARY_PATH
 export PYTHON_CONFIG=python3-config
-# export PATH="/usr/local/opt/llvm/bin:$PATH"
-# export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 pygmentize_clipboard() {
     pbpaste | pygmentize -O "style=bw,fontface=InconsolataGo Nerd Font Mono,fontsize=76" -f rtf -l python | pbcopy

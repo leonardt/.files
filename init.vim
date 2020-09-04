@@ -1,5 +1,6 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'chuling/equinusocio-material.vim'
 Plug 'whatyouhide/vim-gotham'
 Plug 'ryanoasis/vim-devicons'
@@ -171,10 +172,13 @@ set termguicolors
 " colorscheme nord
 " let g:airline_theme="nord"
 
-let g:equinusocio_material_style = 'pure'
-colorscheme equinusocio_material
-let g:airline_theme = 'equinusocio_material'
+" let g:equinusocio_material_style = 'pure'
+" colorscheme equinusocio_material
+" let g:airline_theme = 'equinusocio_material'
 set fillchars+=vert:│
+
+set background=light
+colorscheme PaperColor
 
 " colorscheme minimalist
 " let g:airline_theme='minimalist'
