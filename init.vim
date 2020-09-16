@@ -52,7 +52,9 @@ Plug 'ruanyl/vim-gh-line'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-" Plug 'yuki-ycino/fzf-preview.vim'
+
+Plug 'BurntSushi/ripgrep'
+Plug 'ihsanturk/neuron.vim'
 
 " Plug 'Raimondi/delimitMate'
 Plug 'jiangmiao/auto-pairs'
@@ -172,13 +174,14 @@ set termguicolors
 " colorscheme nord
 " let g:airline_theme="nord"
 
-" let g:equinusocio_material_style = 'pure'
-" colorscheme equinusocio_material
-" let g:airline_theme = 'equinusocio_material'
+let g:equinusocio_material_bracket_improved = 1
+let g:equinusocio_material_style = 'pure'
+colorscheme equinusocio_material
+let g:airline_theme = 'equinusocio_material'
 set fillchars+=vert:│
 
-set background=light
-colorscheme PaperColor
+" set background=light
+" colorscheme PaperColor
 
 " colorscheme minimalist
 " let g:airline_theme='minimalist'
@@ -286,8 +289,10 @@ set wildignore+=*.pyc                            " Python byte code
 
 set wildignore+=*.orig                           " Merge resolution files
 
-nnoremap <c-p> :CocCommand fzf-preview.ProjectFiles<CR>
-nnoremap <leader>b :CocCommand fzf-preview.Buffers<CR>
+" nnoremap <c-p> :CocCommand fzf-preview.ProjectFiles<CR>
+" nnoremap <leader>b :CocCommand fzf-preview.Buffers<CR>
+nnoremap <c-p> :Files<CR>
+nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>c :Dispatch<CR>
 nnoremap <leader>C :Dispatch make clean<CR>
 nnoremap <leader>a :AbortDispatch<CR>

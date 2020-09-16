@@ -38,19 +38,19 @@ draw_bold_text_with_bright_colors: true
 font:
   # The normal (roman) font face to use.
   normal:
-    family: iA Writer Mono S
+    family: AkkuratMonoMono
     # Style can be specified to pick a specific face.
     style: Regular
 
   # The bold font face
   bold:
-    family: iA Writer Mono S
+    family: AkkuratMonoMono
     # Style can be specified to pick a specific face.
     style: Bold
 
   # The italic font face
   italic:
-    family: iA Writer Mono S
+    family: AkkuratMonoMono
     # Style can be specified to pick a specific face.
     style: Italic
 
@@ -146,38 +146,38 @@ debug.render_timer: false
 # PaperColor Light 256 - alacritty color config
 # https://github.com/NLKNguyen/papercolor-theme
 # https://www.reddit.com/r/vim/comments/36xzbs/vim_paper_color_theme_inspired_by_googles/crqbfpa/
-colors:
-  # Default colors
-  primary:
-    background: '0xeeeeee'
-    foreground: '0x4d4d4c'
+# colors:
+#   # Default colors
+#   primary:
+#     background: '0xeeeeee'
+#     foreground: '0x4d4d4c'
 
-  # Colors the cursor will use if `custom_cursor_colors` is true
-  cursor:
-    text: '0xf3f3f3'
-    cursor: '0x4d4d4c'
+#   # Colors the cursor will use if `custom_cursor_colors` is true
+#   cursor:
+#     text: '0xf3f3f3'
+#     cursor: '0x4d4d4c'
 
-  # Normal colors
-  normal:
-    black:   '0xededed'
-    red:     '0xd7005f'
-    green:   '0x718c00'
-    yellow:  '0xd75f00'
-    blue:    '0x4271ae'
-    magenta: '0x8959a8'
-    cyan:    '0x3e999f'
-    white:   '0x4d4d4c'
+#   # Normal colors
+#   normal:
+#     black:   '0xededed'
+#     red:     '0xd7005f'
+#     green:   '0x718c00'
+#     yellow:  '0xd75f00'
+#     blue:    '0x4271ae'
+#     magenta: '0x8959a8'
+#     cyan:    '0x3e999f'
+#     white:   '0x4d4d4c'
 
-  # Bright colors
-  bright:
-    black:   '0x949494'
-    red:     '0xd7005f'
-    green:   '0x718c00'
-    yellow:  '0xd75f00'
-    blue:    '0x4271ae'
-    magenta: '0x8959a8'
-    cyan:    '0x3e999f'
-    white:   '0xf5f5f5'
+#   # Bright colors
+#   bright:
+#     black:   '0x949494'
+#     red:     '0xd7005f'
+#     green:   '0x718c00'
+#     yellow:  '0xd75f00'
+#     blue:    '0x4271ae'
+#     magenta: '0x8959a8'
+#     cyan:    '0x3e999f'
+#     white:   '0xf5f5f5'
 
 # Copyright (c) 2017-present Arctic Ice Studio <development@arcticicestudio.com>
 # Copyright (c) 2017-present Sven Greb <code@svengreb.de>
@@ -214,6 +214,39 @@ colors:
 #     magenta: '0xB48EAD'
 #     cyan: '0x8FBCBB'
 #     white: '0xECEFF4'
+
+# Colors (equinusocio material)
+colors:
+  # Default colors
+  primary:
+    background: '0x000000'
+    foreground: '0xffffff'
+
+  cursor:
+    text: '0x000000'
+    cursor: '0xffcc00'
+
+  # Normal colors
+  normal:
+    black:   '0x000000'
+    red:     '0xff5370'
+    green:   '0xc3e88d'
+    yellow:  '0xffcb6b'
+    blue:    '0x82aaff'
+    magenta: '0xc792ea'
+    cyan:    '0x89ddff'
+    white:   '0xffffff'
+
+  # Bright colors
+  bright:
+    black:   '0x484848'
+    red:     '0xFF5370'
+    green:   '0xc3e88d'
+    yellow:  '0xffcb6b'
+    blue:    '0x82aaff'
+    magenta: '0xc792ea'
+    cyan:    '0x89ddff'
+    white:   '0xffffff'
 
 # Colors (Srcery)
 # colors:

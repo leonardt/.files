@@ -97,4 +97,6 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+export PATH="/Users/lenny/miniconda3/bin:$PATH"
 
+if [ -e /Users/lenny/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/lenny/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
